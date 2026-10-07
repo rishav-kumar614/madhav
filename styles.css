@@ -1276,8 +1276,8 @@ a, button, input, select, textarea {
 }
 
 .center-hub-node {
-  width: 64px;
-  height: 64px;
+  width: 78px;
+  height: 78px;
   border-radius: 50%;
   background: var(--white);
   border: 2px solid var(--green);
@@ -1287,6 +1287,8 @@ a, button, input, select, textarea {
   align-items: center;
   justify-content: center;
   gap: 2px;
+  padding: 4px;
+  text-align: center;
   position: relative;
   z-index: 2;
   pointer-events: auto;
@@ -1307,11 +1309,14 @@ a, button, input, select, textarea {
 
 .hub-node-label {
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: 8px;
   font-weight: 800;
   color: var(--navy);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  line-height: 1.12;
+  text-align: center;
+  display: block;
 }
 
 /* 4 Radiating Branch Stems */
@@ -1340,22 +1345,22 @@ a, button, input, select, textarea {
 }
 
 .arm-tl {
-  width: 40px;
+  width: 48px;
   transform: rotate(-141deg);
 }
 
 .arm-tr {
-  width: 40px;
+  width: 48px;
   transform: rotate(-39deg);
 }
 
 .arm-bl {
-  width: 40px;
+  width: 48px;
   transform: rotate(141deg);
 }
 
 .arm-br {
-  width: 40px;
+  width: 48px;
   transform: rotate(39deg);
 }
 
@@ -2332,17 +2337,18 @@ a, button, input, select, textarea {
 .calculator-card {
   background: var(--white);
   border: 1px solid var(--slate-200);
-  border-radius: 12px;
-  padding: 20px 22px;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
-  max-width: 660px;
+  border-radius: 14px;
+  padding: 24px 28px;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+  max-width: 820px;
   margin: 0 auto 24px;
+  overflow: hidden;
 }
 
 .calc-grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 20px;
+  grid-template-columns: 1fr 1.08fr;
+  gap: 28px;
   align-items: center;
 }
 
@@ -2403,26 +2409,30 @@ a, button, input, select, textarea {
 
 .calc-outputs-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
   margin-bottom: 0;
+  width: 100%;
 }
 
 .calc-out-item {
   background: var(--slate-50);
   border: 1px solid var(--slate-200);
-  border-radius: 6px;
-  padding: 10px 12px;
+  border-radius: 8px;
+  padding: 12px 14px;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .calc-out-label {
-  font-size: 11.5px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   color: var(--slate-500);
   text-transform: uppercase;
   font-family: var(--font-mono);
-  margin-bottom: 2px;
-  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
 }
 
 .calc-out-val {
@@ -2430,6 +2440,7 @@ a, button, input, select, textarea {
   font-weight: 800;
   color: var(--navy);
   font-family: var(--font-mono);
+  white-space: nowrap;
 }
 
 .calc-out-val.accent {
