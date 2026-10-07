@@ -9,7 +9,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300..900;1,300..900&family=Exo:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300..900;1,300..900&family=Exo:ital,wght@0,300..900;1,300..900&family=Hind:wght@400;500;600;700&family=Hind+Vadodara:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="./styles.css">
 </head>
@@ -55,21 +55,35 @@
 
       <nav class="nav-menu-wrapper">
         <ul class="nav-menu">
-          <li><a href="#problem" class="nav-link">Business Case</a></li>
-          <li><a href="#sectors" class="nav-link">Sectors</a></li>
-          <li><a href="#solutions" class="nav-link">Architecture</a></li>
-          <li><a href="#cfo" class="nav-link">CFO Economics</a></li>
-          <li><a href="#process" class="nav-link">Process</a></li>
-          <li><a href="./faq.html" class="nav-link">Boardroom & FAQs</a></li>
+          <li><a href="#problem" class="nav-link" data-i18n="nav.business_case">Business Case</a></li>
+          <li><a href="#sectors" class="nav-link" data-i18n="nav.sectors">Sectors</a></li>
+          <li><a href="#solutions" class="nav-link" data-i18n="nav.architecture">Architecture</a></li>
+          <li><a href="#cfo" class="nav-link" data-i18n="nav.cfo_economics">CFO Economics</a></li>
+          <li><a href="#process" class="nav-link" data-i18n="nav.process">Process</a></li>
+          <li><a href="./faq.html" class="nav-link" data-i18n="nav.boardroom_faqs">Boardroom & FAQs</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
+        <!-- Multi-Language Switcher (EN / HI / GU) -->
+        <div class="lang-switcher-dropdown">
+          <button type="button" class="lang-switcher-toggle" aria-label="Select Language">
+            <svg class="lang-globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span class="lang-current-label">EN</span>
+            <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="lang-switcher-menu">
+            <button type="button" class="lang-opt-btn active" data-lang="en">English</button>
+            <button type="button" class="lang-opt-btn" data-lang="hi">हिन्दी</button>
+            <button type="button" class="lang-opt-btn" data-lang="gu">ગુજરાતી</button>
+          </div>
+        </div>
+
         <a href="tel:+919903737437" class="phone-quicklink">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           <span>+91 99037 37437</span>
         </a>
-        <a href="#assessment-section" class="btn btn-primary btn-sm cta-assessment-trigger nav-cta-btn">
+        <a href="#assessment-section" class="btn btn-primary btn-sm cta-assessment-trigger nav-cta-btn" data-i18n="nav.get_assessment">
           Get Solar Assessment
         </a>
       </div>
@@ -113,15 +127,15 @@
         <div class="hero-trust-row">
           <div class="hero-trust-item">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#259345" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Zero Plant Downtime</span>
+            <span data-i18n="hero.trust_1">Zero Plant Downtime</span>
           </div>
           <div class="hero-trust-item">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#259345" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Non-Penetrative Clamps</span>
+            <span data-i18n="hero.trust_2">Non-Penetrative Clamps</span>
           </div>
           <div class="hero-trust-item">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#259345" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>100% GEDA / CEIG Handled</span>
+            <span data-i18n="hero.trust_3">100% GEDA / CEIG Handled</span>
           </div>
         </div>
       </div>
@@ -134,9 +148,9 @@
   <section class="section section-alt" id="problem">
     <div class="container">
       <div class="section-header text-center reveal-on-scroll">
-        <div class="section-eyebrow">The Business Case</div>
-        <h2 class="section-title">Solar Is an EBITDA & Economics Decision.</h2>
-        <p class="section-lead">Lock operating power costs and shield your bottom line from grid tariff volatility.</p>
+        <div class="section-eyebrow" data-i18n="problem.eyebrow">The Business Case</div>
+        <h2 class="section-title" data-i18n="problem.title">Solar Is an EBITDA & Economics Decision.</h2>
+        <p class="section-lead" data-i18n="problem.lead">Lock operating power costs and shield your bottom line from grid tariff volatility.</p>
       </div>
 
       <!-- Centered Vertical Timeline Tree with Branches -->
@@ -147,8 +161,8 @@
         <div class="timeline-branch branch-left">
           <div class="branch-card-wrap">
             <div class="branch-card">
-              <span class="factor-tag">FACTOR 01</span>
-              <h4>Operating Margins</h4>
+              <span class="factor-tag" data-i18n="problem.f1_tag">FACTOR 01</span>
+              <h4 data-i18n="problem.f1_title">Operating Margins</h4>
               <p>Shield production EBITDA against rising DISCOM power tariffs.</p>
             </div>
             <div class="branch-arm"></div>
@@ -164,7 +178,7 @@
           <div class="branch-card-wrap">
             <div class="branch-arm"></div>
             <div class="branch-card">
-              <span class="factor-tag">FACTOR 02</span>
+              <span class="factor-tag" data-i18n="problem.f2_tag">FACTOR 02</span>
               <h4>Cost Predictability</h4>
               <p>Eliminate peak daytime penalties with fixed-rate solar generation.</p>
             </div>
@@ -175,7 +189,7 @@
         <div class="timeline-branch branch-left">
           <div class="branch-card-wrap">
             <div class="branch-card">
-              <span class="factor-tag">FACTOR 03</span>
+              <span class="factor-tag" data-i18n="problem.f3_tag">FACTOR 03</span>
               <h4>Competitiveness & ESG</h4>
               <p>De-carbonize Scope-2 emissions to win global client mandates.</p>
             </div>
@@ -202,7 +216,7 @@
       <!-- Sub-Block 2: The Strategic Value Pillars (4-Quadrant Branched Circular Hub) -->
       <div class="merged-sub-block reveal-on-scroll">
         <div class="merged-block-title-wrap">
-          <div class="section-eyebrow">Strategic Value Proposition</div>
+          <div class="section-eyebrow" data-i18n="value.eyebrow">Strategic Value Proposition</div>
           <h3>Solar Engineered Around Four Strategic Quadrants</h3>
           <p><strong>Engineering precision. Execution reliability. Commercial viability.</strong></p>
         </div>
@@ -221,7 +235,7 @@
                   <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
                 </svg>
               </div>
-              <span class="hub-node-label">VALUE<br>CORE</span>
+              <span class="hub-node-label" data-i18n-html="value.hub">VALUE<br>CORE</span>
             </div>
           </div>
 
@@ -232,10 +246,10 @@
                 <div class="pillar-icon-wrap">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                 </div>
-                <span class="quadrant-tag">Q1 // MARGINS</span>
+                <span class="quadrant-tag" data-i18n="value.q1_tag">Q1 // MARGINS</span>
               </div>
-              <h4>Lower Grid Dependence</h4>
-              <p>Shield plant EBITDA against rising utility base tariffs.</p>
+              <h4 data-i18n="value.q1_title">Lower Grid Dependence</h4>
+              <p data-i18n="value.q1_desc">Shield plant EBITDA against rising utility base tariffs.</p>
             </div>
 
             <!-- Quadrant 02: Top-Right -->
@@ -244,10 +258,10 @@
                 <div class="pillar-icon-wrap">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                 </div>
-                <span class="quadrant-tag">Q2 // VISIBILITY</span>
+                <span class="quadrant-tag" data-i18n="value.q2_tag">Q2 // VISIBILITY</span>
               </div>
-              <h4>Better Cost Visibility</h4>
-              <p>Lock fixed power tariffs for 25-year budget certainty.</p>
+              <h4 data-i18n="value.q2_title">Better Cost Visibility</h4>
+              <p data-i18n="value.q2_desc">Lock fixed power tariffs for 25-year budget certainty.</p>
             </div>
 
             <!-- Quadrant 03: Bottom-Left -->
@@ -256,10 +270,10 @@
                 <div class="pillar-icon-wrap">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
                 </div>
-                <span class="quadrant-tag">Q3 // ROI</span>
+                <span class="quadrant-tag" data-i18n="value.q3_tag">Q3 // ROI</span>
               </div>
-              <h4>Stronger Business Economics</h4>
-              <p>2.8-year payback with 40% Year-1 tax depreciation.</p>
+              <h4 data-i18n="value.q3_title">Stronger Business Economics</h4>
+              <p data-i18n="value.q3_desc">2.8-year payback with 40% Year-1 tax depreciation.</p>
             </div>
 
             <!-- Quadrant 04: Bottom-Right -->
@@ -268,10 +282,10 @@
                 <div class="pillar-icon-wrap">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                 </div>
-                <span class="quadrant-tag">Q4 // ESG</span>
+                <span class="quadrant-tag" data-i18n="value.q4_tag">Q4 // ESG</span>
               </div>
-              <h4>Sustainable Growth</h4>
-              <p>Cut Scope-2 carbon emissions with zero plant disruption.</p>
+              <h4 data-i18n="value.q4_title">Sustainable Growth</h4>
+              <p data-i18n="value.q4_desc">Cut Scope-2 carbon emissions with zero plant disruption.</p>
             </div>
           </div>
         </div>
@@ -387,7 +401,7 @@
         <!-- Diagram 5: Tier-1 Industrial Hardware Anatomy & Engineering Matrix -->
         <div class="hardware-anatomy-card reveal-on-scroll delay-200">
           <div class="hardware-card-header">
-            <div class="section-eyebrow">Hardware Integrity Standard</div>
+            <div class="section-eyebrow" data-i18n="hardware.eyebrow">Hardware Integrity Standard</div>
             <h3>Tier-1 Industrial Hardware Anatomy</h3>
             <p>Utility-grade components engineered for 25-year lifecycle reliability.</p>
           </div>
@@ -459,19 +473,19 @@
     <div class="container">
       <div class="sketch-header-card">
         <div class="section-header text-center reveal-on-scroll">
-          <div class="section-eyebrow">Sector-Specific Solutions</div>
-          <h2 class="section-title">Different Industries. Different Energy Problems.</h2>
-          <p class="section-lead">Solar should not be marketed using one generic message. Each industrial sector has a distinct commercial trigger.</p>
+          <div class="section-eyebrow" data-i18n="sectors.eyebrow">Sector-Specific Solutions</div>
+          <h2 class="section-title" data-i18n="sectors.title">Different Industries. Different Energy Problems.</h2>
+          <p class="section-lead" data-i18n="sectors.lead">Solar should not be marketed using one generic message. Each industrial sector has a distinct commercial trigger.</p>
         </div>
       </div>
 
       <div class="sector-tabs-nav reveal-on-scroll">
-        <button class="sector-tab-btn active" data-target="sector-mfg">Manufacturing</button>
-        <button class="sector-tab-btn" data-target="sector-warehousing">Warehousing & Logistics</button>
-        <button class="sector-tab-btn" data-target="sector-hospitality">Hospitality</button>
-        <button class="sector-tab-btn" data-target="sector-healthcare">Healthcare</button>
-        <button class="sector-tab-btn" data-target="sector-cre">Commercial Real Estate</button>
-        <button class="sector-tab-btn" data-target="sector-datacenters">Data Centres</button>
+        <button class="sector-tab-btn active" data-target="sector-mfg" data-i18n="sectors.tab_mfg">Manufacturing</button>
+        <button class="sector-tab-btn" data-target="sector-warehousing" data-i18n="sectors.tab_warehousing">Warehousing & Logistics</button>
+        <button class="sector-tab-btn" data-target="sector-hospitality" data-i18n="sectors.tab_hospitality">Hospitality</button>
+        <button class="sector-tab-btn" data-target="sector-healthcare" data-i18n="sectors.tab_healthcare">Healthcare</button>
+        <button class="sector-tab-btn" data-target="sector-cre" data-i18n="sectors.tab_cre">Commercial Real Estate</button>
+        <button class="sector-tab-btn" data-target="sector-datacenters" data-i18n="sectors.tab_datacenters">Data Centres</button>
       </div>
 
       <!-- Sector Content Cards (Switched via JS) -->
@@ -664,9 +678,9 @@
     <div class="container">
       <div class="sketch-header-card">
         <div class="section-header reveal-on-scroll">
-          <div class="section-eyebrow">Solution Architecture</div>
-          <h2 class="section-title">The Right Solar Model Depends on Your Business.</h2>
-          <p class="section-lead">There is no single solution that fits every organisation. The correct model depends on your power consumption, infrastructure, available space, and long-term capital allocation.</p>
+          <div class="section-eyebrow" data-i18n="arch.eyebrow">Solution Architecture</div>
+          <h2 class="section-title" data-i18n="arch.title">The Right Solar Model Depends on Your Business.</h2>
+          <p class="section-lead" data-i18n="arch.lead">There is no single solution that fits every organisation. The correct model depends on your power consumption, infrastructure, available space, and long-term capital allocation.</p>
         </div>
       </div>
 
@@ -676,8 +690,8 @@
             <img src="./3.jpg" alt="Commercial & Industrial Rooftop Solar Installation" class="arch-card-img">
           </div>
           <div class="arch-strip">
-            <span class="arch-strip-tag">MODEL 01 // ROOFTOP</span>
-            <span class="arch-strip-title">Rooftop Solar</span>
+            <span class="arch-strip-tag" data-i18n="arch.card1_tag">MODEL 01 // ROOFTOP</span>
+            <span class="arch-strip-title" data-i18n="arch.card1_title">Rooftop Solar</span>
           </div>
           <div class="arch-detail-panel">
             <div class="arch-tag">MODEL 01 // ROOFTOP</div>
@@ -691,7 +705,7 @@
             <img src="./4.jpg" alt="Industrial Ground-Mounted Solar Plant" class="arch-card-img">
           </div>
           <div class="arch-strip">
-            <span class="arch-strip-tag">MODEL 02 // GROUND-MOUNT</span>
+            <span class="arch-strip-tag" data-i18n="arch.card2_tag">MODEL 02 // GROUND-MOUNT</span>
             <span class="arch-strip-title">Ground-Mounted Solar</span>
           </div>
           <div class="arch-detail-panel">
@@ -721,13 +735,13 @@
             <img src="./8.jpg" alt="Utility-Scale Open Access Solar Wheeling" class="arch-card-img">
           </div>
           <div class="arch-strip">
-            <span class="arch-strip-tag">MODEL 04 // OPEN ACCESS</span>
-            <span class="arch-strip-title">Open Access Solar</span>
+            <span class="arch-strip-tag" data-i18n="arch.card4_tag">MODEL 04 // OPEN ACCESS</span>
+            <span class="arch-strip-title" data-i18n="arch.card4_title">Open Access Solar</span>
           </div>
           <div class="arch-detail-panel">
             <div class="arch-tag">MODEL 04 // OPEN ACCESS</div>
             <h3>Open Access Solar</h3>
-            <p>Multi-megawatt green power wheeled directly via state grid to your factory.</p>
+            <p data-i18n="arch.card4_desc">Multi-megawatt green power wheeled directly via state grid to your factory.</p>
           </div>
         </div>
       </div>
@@ -736,9 +750,9 @@
       <div class="merged-sub-block reveal-on-scroll">
         <div class="sketch-header-card">
           <div class="merged-block-title-wrap">
-            <div class="section-eyebrow">Strategic Evaluation Matrix</div>
-            <h3>Solar Decisions Should Be Made on Fit, Not Fashion</h3>
-            <p>A direct commercial comparison answering the most frequent boardroom buying dilemmas.</p>
+            <div class="section-eyebrow" data-i18n="matrix.eyebrow">Strategic Evaluation Matrix</div>
+            <h3 data-i18n="matrix.title">Solar Decisions Should Be Made on Fit, Not Fashion</h3>
+            <p data-i18n="matrix.lead">A direct commercial comparison answering the most frequent boardroom buying dilemmas.</p>
           </div>
         </div>
 
@@ -786,7 +800,7 @@
     <div class="container">
       <div class="cfo-core-box reveal-on-scroll">
         <div class="cfo-box-header">
-          <div class="section-eyebrow" style="color: #4ADE80;">The CFO Section</div>
+          <div class="section-eyebrow" style="color: #4ADE80;" data-i18n="cfo.eyebrow">The CFO Section</div>
           <h2>Before Solar Becomes an ESG Decision, It Has to Make Financial Sense.</h2>
           <p>Senior financial decision-makers need answers to commercial questions — not just installed capacity numbers.</p>
         </div>
@@ -832,38 +846,38 @@
       <div class="calculator-card reveal-on-scroll">
         <div class="calc-grid">
           <div class="calc-input-block">
-            <div class="section-eyebrow">Interactive Financial Engine</div>
-            <h3>Estimate Your Factory Solar Opportunity</h3>
-            <p>Select your average monthly electricity bill to calculate approximate plant capacity and economic returns.</p>
+            <div class="section-eyebrow" data-i18n="calc.eyebrow">Interactive Financial Engine</div>
+            <h3 data-i18n="calc.title">Estimate Your Factory Solar Opportunity</h3>
+            <p data-i18n="calc.lead">Select your average monthly electricity bill to calculate approximate plant capacity and economic returns.</p>
 
             <div class="calc-slider-wrap">
               <div class="calc-slider-label">
-                <span>Monthly Electricity Bill</span>
+                <span data-i18n="calc.slider_label">Monthly Electricity Bill</span>
                 <span class="calc-slider-val" id="calcBillDisplay">₹5.0 Lakh / mo</span>
               </div>
               <input type="range" min="100000" max="3000000" step="50000" value="500000" class="calc-range-input" id="calcBillSlider">
             </div>
 
             <a href="#assessment-section" class="btn btn-primary cta-assessment-trigger" style="width: 100%;">
-              Get Detailed Feasibility Report for this Setup
+              <span data-i18n="calc.cta_btn">Get Detailed Feasibility Report for this Setup</span>
             </a>
           </div>
 
           <div class="calc-outputs-grid">
             <div class="calc-out-item">
-              <div class="calc-out-label">Recommended Capacity</div>
+              <div class="calc-out-label" data-i18n="calc.lbl_capacity">Recommended Capacity</div>
               <div class="calc-out-val" id="calcPlantSize">140 kWp</div>
             </div>
             <div class="calc-out-item">
-              <div class="calc-out-label">Est. Annual Power Savings</div>
+              <div class="calc-out-label" data-i18n="calc.lbl_savings">Est. Annual Power Savings</div>
               <div class="calc-out-val accent" id="calcAnnualSavings">₹37.2 Lakh / yr</div>
             </div>
             <div class="calc-out-item">
-              <div class="calc-out-label">Expected Capital Payback</div>
+              <div class="calc-out-label" data-i18n="calc.lbl_payback">Expected Capital Payback</div>
               <div class="calc-out-val" id="calcPayback">2.9 Years</div>
             </div>
             <div class="calc-out-item">
-              <div class="calc-out-label">25-Year Lifecycle Savings</div>
+              <div class="calc-out-label" data-i18n="calc.lbl_lifetime">25-Year Lifecycle Savings</div>
               <div class="calc-out-val accent" id="calcLifetimeSavings">₹8.37 Cr</div>
             </div>
           </div>
@@ -874,9 +888,9 @@
       <div class="merged-sub-block reveal-on-scroll">
         <div class="sketch-header-card">
           <div class="merged-block-title-wrap">
-            <div class="section-eyebrow">Audited Industrial Proof</div>
-            <h3>Proof Measured in Balance Sheet Outcomes, Not Just Megawatts</h3>
-            <p>Most solar companies communicate “Project commissioned — X MW.” That shows activity. It does not show capability. Here is audited performance across operating industrial facilities.</p>
+            <div class="section-eyebrow" data-i18n="proof.eyebrow">Audited Industrial Proof</div>
+            <h3 data-i18n="proof.title">Proof Measured in Balance Sheet Outcomes, Not Just Megawatts</h3>
+            <p data-i18n="proof.lead">Most solar companies communicate “Project commissioned — X MW.” That shows activity. It does not show capability. Here is audited performance across operating industrial facilities.</p>
           </div>
         </div>
 
@@ -975,9 +989,9 @@
     <div class="container">
       <div class="sketch-header-card">
         <div class="section-header reveal-on-scroll">
-          <div class="section-eyebrow">The Engineering Process</div>
-          <h2 class="section-title">From Energy Requirement to Executable Solar Roadmap</h2>
-          <p class="section-lead">A structured, six-stage turnkey process engineered for zero production disruption and guaranteed generation.</p>
+          <div class="section-eyebrow" data-i18n="process.eyebrow">The Engineering Process</div>
+          <h2 class="section-title" data-i18n="process.title">From Energy Requirement to Executable Solar Roadmap</h2>
+          <p class="section-lead" data-i18n="process.lead">A structured, six-stage turnkey process engineered for zero production disruption and guaranteed generation.</p>
         </div>
       </div>
 
@@ -1104,8 +1118,8 @@
     <div class="container">
       <div class="final-cta-box reveal-on-scroll">
         <div class="final-cta-inner">
-          <h2>Before You Buy Solar, Know What It Can Do for Your Business.</h2>
-          <p>Understand the technical feasibility, commercial model and long-term energy opportunity before making an investment decision.</p>
+          <h2 data-i18n="final.title">Before You Buy Solar, Know What It Can Do for Your Business.</h2>
+          <p data-i18n="final.lead">Understand the technical feasibility, commercial model and long-term energy opportunity before making an investment decision.</p>
 
           <div class="final-buttons-row">
             <a href="#assessment-section" class="btn btn-accent cta-assessment-trigger">
@@ -1324,6 +1338,8 @@
     </div>
   </div>
 
+  <script src="./translations.js"></script>
+  <script src="./i18n.js"></script>
   <script src="./hero-sequence.js"></script>
   <script src="./app.js"></script>
 </body>
