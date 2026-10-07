@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madhav Solar Energy — Draft 2: Industrial Telemetry & Horizon Split</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-navy: #182B68;
+      --color-green: #259345;
+      --color-green-neon: #34D399;
+      --color-amber: #F59E0B;
+      --bg-cinematic: #070B14;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-cinematic);
+      color: #F8FAFC;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ==========================================================
+       DRAFT 2: CINEMATIC DUAL-SHUTTER & TELEMETRY LOADER
+       ========================================================== */
+    #industrial-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      pointer-events: all;
+    }
+
+    /* Shutter Panels that split open on exit (Horizon Reveal) */
+    .shutter-top, .shutter-bottom {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 50.5%;
+      background: #060A13;
+      z-index: 1;
+      transition: transform 0.85s cubic-bezier(0.85, 0, 0.15, 1);
+      will-change: transform;
+    }
+
+    .shutter-top {
+      top: 0;
+      border-bottom: 1px solid rgba(52, 211, 153, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .shutter-bottom {
+      bottom: 0;
+      border-top: 1px solid rgba(52, 211, 153, 0.2);
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Shutter Open States */
+    #industrial-loader.opened .shutter-top {
+      transform: translateY(-100%);
+    }
+
+    #industrial-loader.opened .shutter-bottom {
+      transform: translateY(100%);
+    }
+
+    #industrial-loader.opened {
+      pointer-events: none;
+      visibility: hidden;
+      transition: visibility 0.9s;
+    }
+
+    /* Subtle Photovoltaic Silicon Grid background texture */
+    .pv-mesh-grid {
+      position: absolute;
+      inset: 0;
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      pointer-events: none;
+    }
+
+    /* Fullscreen content overlay */
+    .telemetry-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(20px, 4vw, 48px);
+      transition: opacity 0.4s ease;
+    }
+
+    #industrial-loader.opened .telemetry-content {
+      opacity: 0;
+    }
+
+    /* Top Telemetry HUD Header */
+    .hud-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: #64748B;
+      text-transform: uppercase;
+    }
+
+    .hud-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pulse-amber {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--color-amber);
+      box-shadow: 0 0 10px var(--color-amber);
+      animation: blink 0.8s infinite alternate;
+    }
+
+    .hud-coords {
+      color: #94A3B8;
+      font-weight: 600;
+    }
+
+    /* Center Stage: Heroic Logo in Optical Solar Arc */
+    .center-stage {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      z-index: 3;
+      width: 90%;
+      max-width: 540px;
+    }
+
+    .solar-compass-wrapper {
+      position: relative;
+      width: clamp(280px, 80vw, 460px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Rotating SVG Solar Azimuth Ring */
+    .solar-azimuth-ring {
+      position: absolute;
+      width: 120%;
+      height: 220%;
+      pointer-events: none;
+      animation: rotateAzimuth 16s linear infinite;
+      opacity: 0.75;
+    }
+
+    @keyframes rotateAzimuth {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Logo Glass Card */
+    .logo-hero-badge {
+      position: relative;
+      width: 100%;
+      background: #FFFFFF;
+      padding: 22px 36px;
+      border-radius: 20px;
+      box-shadow: 
+        0 25px 60px -10px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(255, 255, 255, 0.15),
+        0 0 70px rgba(37, 147, 69, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transform: scale(0.96);
+      animation: badgeScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes badgeScale {
+      to { transform: scale(1); }
+    }
+
+    .logo-hero-badge img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* High speed optical ray scanning through the logo */
+    .laser-scan-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 30%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 147, 69, 0.35) 50%,
+        rgba(52, 211, 153, 0.8) 75%,
+        transparent 100%
+      );
+      transform: skewX(-22deg) translateX(-250%);
+      animation: laserSweep 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes laserSweep {
+      0% { transform: skewX(-22deg) translateX(-250%); }
+      60%, 100% { transform: skewX(-22deg) translateX(350%); }
+    }
+
+    /* Live Capacity Counter (0 to 200+ MW) */
+    .metrics-hub {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .counter-hero {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .counter-number {
+      font-size: clamp(36px, 6vw, 54px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #FFFFFF;
+      text-shadow: 0 0 25px rgba(52, 211, 153, 0.4);
+    }
+
+    .counter-unit {
+      font-size: clamp(20px, 3.5vw, 26px);
+      font-weight: 700;
+      color: var(--color-green-neon);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .counter-caption {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #94A3B8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .counter-caption span {
+      color: var(--color-green-neon);
+    }
+
+    /* Bottom Telemetry HUD Footer */
+    .hud-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: #64748B;
+      text-transform: uppercase;
+    }
+
+    .meter-cluster {
+      display: flex;
+      gap: 24px;
+    }
+
+    .meter-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .meter-label {
+      color: #475569;
+      font-size: 10px;
+    }
+
+    .meter-val {
+      color: #CBD5E1;
+      font-weight: 600;
+    }
+
+    /* Precision Rule Tracker (Bottom Center) */
+    .precision-track-wrap {
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .precision-track {
+      width: 100%;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .precision-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #182B68, #259345, #34D399);
+      box-shadow: 0 0 10px #34D399;
+      transition: width 0.1s linear;
+    }
+
+    .ticks-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      color: #475569;
+    }
+
+    @keyframes blink {
+      0% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+
+    /* ==========================================================
+       TOP DEMO NAV & UNDERLYING LANDING PAGE
+       ========================================================== */
+    .demo-navbar {
+      background: rgba(7, 11, 20, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-title {
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-title span { color: var(--color-green-neon); }
+
+    .nav-tabs {
+      display: flex;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 99px;
+      padding: 3px;
+      gap: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .tab-link {
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #94A3B8;
+      border-radius: 99px;
+      transition: all 0.2s ease;
+    }
+    .tab-link.active {
+      background: var(--color-green);
+      color: white;
+    }
+    .tab-link:hover:not(.active) {
+      color: #fff;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-action {
+      padding: 8px 18px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-replay {
+      background: linear-gradient(135deg, #259345 0%, #059669 100%);
+      color: white;
+      box-shadow: 0 4px 18px rgba(37, 147, 69, 0.4);
+    }
+    .btn-replay:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(37, 147, 69, 0.55);
+    }
+
+    /* Landing Page Content underneath */
+    .funnel-hero {
+      max-width: 1140px;
+      margin: 80px auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 99px;
+      background: rgba(37, 147, 69, 0.1);
+      border: 1px solid rgba(37, 147, 69, 0.3);
+      color: #34D399;
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+    }
+
+    .funnel-hero h1 {
+      font-size: clamp(36px, 5.8vw, 64px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      margin-bottom: 22px;
+    }
+
+    .funnel-hero h1 .accent-gradient {
+      background: linear-gradient(135deg, #34D399 0%, #259345 60%, #60A5FA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .funnel-hero p {
+      color: #94A3B8;
+      font-size: 18px;
+      max-width: 650px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .comparison-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 940px;
+      margin: 0 auto;
+    }
+
+    .comp-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: left;
+    }
+
+    .comp-card .headline {
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #64748B;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .comp-card .stat {
+      font-size: 32px;
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+      color: #34D399;
+    }
+
+    .comp-card .note {
+      font-size: 13px;
+      color: #94A3B8;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================
+       DRAFT 2: INDUSTRIAL TELEMETRY & HORIZON SPLIT LOADER
+       ========================================================== -->
+  <div id="industrial-loader">
+    <!-- Top & Bottom Shutters for Cinematic Horizon Split -->
+    <div class="shutter-top">
+      <div class="pv-mesh-grid"></div>
+    </div>
+    <div class="shutter-bottom">
+      <div class="pv-mesh-grid"></div>
+    </div>
+
+    <!-- HUD Overlay Content -->
+    <div class="telemetry-content">
+      <!-- HUD Header -->
+      <div class="hud-header">
+        <div class="hud-tag">
+          <span class="pulse-amber"></span>
+          <span>GRID FREQUENCY: 50.02 HZ</span>
+        </div>
+        <div class="hud-coords">
+          SURAT, GUJARAT [21.17° N, 72.83° E]
+        </div>
+        <div class="hud-tag">
+          <span>DISCOM SYNC: DGVCL / TORRENT</span>
+        </div>
+      </div>
+
+      <!-- Center Logo & Azimuth Arc Stage -->
+      <div class="center-stage">
+        <div class="solar-compass-wrapper">
+          <!-- Geometric Azimuth Arc SVG -->
+          <svg class="solar-azimuth-ring" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="200" cy="200" r="185" stroke="rgba(37, 147, 69, 0.15)" stroke-width="1.5" stroke-dasharray="6 6" />
+            <circle cx="200" cy="200" r="150" stroke="rgba(52, 211, 153, 0.25)" stroke-width="1" />
+            <path d="M200 15 A 185 185 0 0 1 385 200" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="385" cy="200" r="5" fill="#34D399" />
+          </svg>
+
+          <!-- Crisp Madhav Solar Logo Badge -->
+          <div class="logo-hero-badge">
+            <img src="./image.png" alt="Madhav Solar Energy">
+            <div class="laser-scan-line"></div>
+          </div>
+        </div>
+
+        <!-- Live Megawatt Counter -->
+        <div class="metrics-hub">
+          <div class="counter-hero">
+            <span class="counter-number" id="mwCounter">0</span>
+            <span class="counter-unit">MW+</span>
+          </div>
+          <div class="counter-caption">
+            COMMISSIONED CAPACITY // <span id="statusPhrase">CALIBRATING CELLS</span>
+          </div>
+        </div>
+
+        <!-- Precision Loading Ruler -->
+        <div class="precision-track-wrap">
+          <div class="precision-track">
+            <div class="precision-fill" id="precisionFill"></div>
+          </div>
+          <div class="ticks-row">
+            <span>0 KWp</span>
+            <span>50 MW</span>
+            <span>100 MW</span>
+            <span>150 MW</span>
+            <span>200+ MW</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HUD Footer -->
+      <div class="hud-footer">
+        <div class="meter-cluster">
+          <div class="meter-item">
+            <span class="meter-label">IRRADIANCE</span>
+            <span class="meter-val" id="irrVal">5.42 kWh/m²</span>
+          </div>
+          <div class="meter-item">
+            <span class="meter-label">SYSTEM PR</span>
+            <span class="meter-val">82.4%</span>
+          </div>
+          <div class="meter-item">
+            <span class="meter-label">TIER-1 MODULES</span>
+            <span class="meter-val">TOPCon / Mono PERC</span>
+          </div>
+        </div>
+
+        <div class="meter-item" style="text-align: right;">
+          <span class="meter-label">ESTABLISHED</span>
+          <span class="meter-val">2017 • 550+ SITES</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       DEMO PREVIEW LANDING PAGE
+       ========================================================== -->
+  <nav class="demo-navbar">
+    <div class="nav-left">
+      <div class="brand-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        Madhav Solar <span>Funnel</span>
+      </div>
+
+      <!-- Toggle between drafts -->
+      <div class="nav-tabs">
+        <a href="./loader-draft3.html" class="tab-link">Draft 3 (Clean Light)</a>
+        <a href="./loader-preview.html" class="tab-link">Draft 1 (Solar Beam)</a>
+        <a href="./loader-draft2.html" class="tab-link active">Draft 2 (Industrial)</a>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <button class="btn-action btn-replay" onclick="replayDraft2()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+        Replay Horizon Shutter
+      </button>
+    </div>
+  </nav>
+
+  <main class="funnel-hero">
+    <div class="hero-tag">Gujarat's Premier B2B Solar EPC</div>
+    <h1>Turn High Power Tariffs Into <br><span class="accent-gradient">A 25-Year Fixed Asset</span></h1>
+    <p>Zero CAPEX and turnkey rooftop solar power for textile mills, pharma factories, and cold storage units across Gujarat.</p>
+
+    <div class="comparison-bar">
+      <div class="comp-card">
+        <div class="headline">Grid Power Rate</div>
+        <div class="stat" style="color: #F87171;">₹8.50 - ₹11</div>
+        <div class="note">Rising 4-7% every year unpredictably</div>
+      </div>
+      <div class="comp-card">
+        <div class="headline">Madhav Solar Power</div>
+        <div class="stat">₹3.20 - ₹3.80</div>
+        <div class="note">Fixed Levelized Cost of Energy (LCOE)</div>
+      </div>
+      <div class="comp-card">
+        <div class="headline">Tax Write-Off</div>
+        <div class="stat">40% Year 1</div>
+        <div class="note">Accelerated Depreciation under Section 32</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================
+       DRAFT 2 JAVASCRIPT ANIMATION LOGIC
+       ========================================================== -->
+  <script>
+    const loader = document.getElementById('industrial-loader');
+    const mwCounter = document.getElementById('mwCounter');
+    const precisionFill = document.getElementById('precisionFill');
+    const statusPhrase = document.getElementById('statusPhrase');
+    const irrVal = document.getElementById('irrVal');
+
+    const phrases = [
+      { progress: 0.15, text: 'SCANNING ROOF IRRADIANCE', irr: '4.80 kWh/m²' },
+      { progress: 0.40, text: 'SYNCHRONIZING DGVCL GRID', irr: '5.15 kWh/m²' },
+      { progress: 0.70, text: 'CALIBRATING INVERTER ARRAY', irr: '5.42 kWh/m²' },
+      { progress: 0.95, text: '200+ MW COMMISSIONED', irr: '5.65 kWh/m²' }
+    ];
+
+    function runDraft2(duration = 2000) {
+      // Reset
+      loader.classList.remove('opened');
+      precisionFill.style.width = '0%';
+      mwCounter.innerText = '0';
+      statusPhrase.innerText = 'INITIALIZING TELEMETRY';
+
+      const startTime = performance.now();
+      const targetMW = 200;
+
+      function frame(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing for mechanical precision
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const currentMW = Math.round(eased * targetMW);
+
+        mwCounter.innerText = currentMW;
+        precisionFill.style.width = (eased * 100) + '%';
+
+        // Update phrases
+        for (let i = phrases.length - 1; i >= 0; i--) {
+          if (progress >= phrases[i].progress) {
+            statusPhrase.innerText = phrases[i].text;
+            irrVal.innerText = phrases[i].irr;
+            break;
+          }
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(frame);
+        } else {
+          // Trigger the dramatic horizon shutter split!
+          setTimeout(() => {
+            loader.classList.add('opened');
+          }, 300);
+        }
+      }
+
+      requestAnimationFrame(frame);
+    }
+
+    function replayDraft2() {
+      runDraft2(2000);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      runDraft2(2000);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madhav Solar Energy — Premium Loader Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-navy: #182B68;
+      --color-green: #259345;
+      --color-green-glow: rgba(37, 147, 69, 0.45);
+      --color-gold: #F59E0B;
+      --bg-dark: #0A0F1D;
+      --bg-light: #F4F6F9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: #fff;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ==========================================================
+       LOADER OVERLAY COMPONENT
+       ========================================================== */
+    #madhav-site-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                  visibility 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.65s cubic-bezier(0.77, 0, 0.175, 1);
+      will-change: opacity, transform;
+    }
+
+    /* Dark Mode Theme (Default / Premium High-End) */
+    #madhav-site-loader.theme-dark {
+      background: radial-gradient(circle at center, #0F172A 0%, #060913 100%);
+    }
+
+    /* Clean Corporate Light Mode (Original Website Vibe) */
+    #madhav-site-loader.theme-light {
+      background: radial-gradient(circle at center, #FFFFFF 0%, #E9EDF2 100%);
+    }
+
+    /* Subtle background grid pattern */
+    .loader-grid-ambient {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.05;
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, #ffffff 1px, transparent 1px),
+        linear-gradient(to bottom, #ffffff 1px, transparent 1px);
+    }
+    .theme-light .loader-grid-ambient {
+      opacity: 0.06;
+      background-image: 
+        linear-gradient(to right, #000000 1px, transparent 1px),
+        linear-gradient(to bottom, #000000 1px, transparent 1px);
+    }
+
+    /* Ambient solar energy aura behind the logo */
+    .solar-energy-halo {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 147, 69, 0.22) 0%, rgba(24, 43, 104, 0.15) 50%, transparent 70%);
+      filter: blur(40px);
+      animation: pulseHalo 2.4s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    .theme-light .solar-energy-halo {
+      background: radial-gradient(circle, rgba(37, 147, 69, 0.18) 0%, rgba(24, 43, 104, 0.08) 50%, transparent 70%);
+    }
+
+    @keyframes pulseHalo {
+      0% { transform: scale(0.85); opacity: 0.5; }
+      100% { transform: scale(1.15); opacity: 0.95; }
+    }
+
+    /* Center Stage for Logo */
+    .loader-stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+      z-index: 2;
+      padding: 30px;
+    }
+
+    /* Logo Wrapper with Shimmer Mask */
+    .logo-container {
+      position: relative;
+      width: clamp(260px, 45vw, 420px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: logoEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes logoEntrance {
+      0% {
+        opacity: 0;
+        transform: translateY(18px) scale(0.96);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .logo-img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.25));
+      transition: filter 0.3s ease;
+    }
+
+    .theme-dark .logo-img {
+      /* In dark mode, add a subtle backplate so the dark navy text pops cleanly */
+      background: rgba(255, 255, 255, 0.95);
+      padding: 16px 26px;
+      border-radius: 18px;
+      box-shadow: 
+        0 15px 35px -5px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.15),
+        0 0 45px rgba(37, 147, 69, 0.25);
+    }
+
+    .theme-light .logo-img {
+      filter: drop-shadow(0 8px 24px rgba(24, 43, 104, 0.08));
+    }
+
+    /* Solar beam sweep effect */
+    .solar-light-sweep {
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        transparent 40%,
+        rgba(255, 255, 255, 0.75) 50%,
+        transparent 60%,
+        transparent 100%
+      );
+      transform: translateX(-150%);
+      animation: solarSweep 2s 0.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      pointer-events: none;
+    }
+
+    @keyframes solarSweep {
+      0% { transform: translateX(-150%); }
+      60%, 100% { transform: translateX(150%); }
+    }
+
+    /* Progress & Status Container */
+    .loader-status-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      width: 220px;
+    }
+
+    /* High-tech slim progress track */
+    .progress-track {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 99px;
+      overflow: hidden;
+      position: relative;
+    }
+    .theme-light .progress-track {
+      background: rgba(24, 43, 104, 0.12);
+    }
+
+    .progress-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #182B68 0%, #259345 70%, #4ADE80 100%);
+      border-radius: 99px;
+      box-shadow: 0 0 12px var(--color-green-glow);
+      transition: width 0.15s ease-out;
+    }
+
+    /* Subtext and Counter */
+    .loader-info-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #94A3B8;
+      font-family: 'Space Grotesk', monospace;
+    }
+    .theme-light .loader-info-row {
+      color: #64748B;
+    }
+
+    .loader-status-text {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--color-green);
+      box-shadow: 0 0 8px #259345;
+      animation: blinkDot 1s infinite alternate;
+    }
+
+    @keyframes blinkDot {
+      0% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+
+    .percent-number {
+      color: #259345;
+      font-weight: 700;
+    }
+
+    /* Dismiss Animation Classes */
+    #madhav-site-loader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    #madhav-site-loader.curtain-up {
+      transform: translateY(-100%);
+      opacity: 0.98;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* ==========================================================
+       DEMO CONTROLS & UNDERLYING LANDING PAGE PREVIEW
+       ========================================================== */
+    .demo-navbar {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .demo-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .demo-brand span {
+      color: var(--color-green);
+    }
+
+    .controls-panel {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 9px 18px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #259345 0%, #1a7434 100%);
+      color: white;
+      box-shadow: 0 4px 16px rgba(37, 147, 69, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(37, 147, 69, 0.45);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #E2E8F0;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    /* Dummy Landing Page underneath to test smooth reveal */
+    .mock-hero {
+      max-width: 1180px;
+      margin: 80px auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 99px;
+      background: rgba(37, 147, 69, 0.12);
+      border: 1px solid rgba(37, 147, 69, 0.3);
+      color: #4ADE80;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .mock-hero h1 {
+      font-size: clamp(34px, 5.5vw, 62px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .mock-hero h1 .gradient-text {
+      background: linear-gradient(135deg, #4ADE80 0%, #259345 50%, #60A5FA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .mock-hero p {
+      color: #94A3B8;
+      font-size: 18px;
+      max-width: 680px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 60px auto 0;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .stat-card .num {
+      font-size: 38px;
+      font-weight: 800;
+      color: #259345;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .stat-card .lbl {
+      color: #94A3B8;
+      font-size: 13px;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .code-box {
+      max-width: 900px;
+      margin: 60px auto;
+      background: #020617;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: left;
+    }
+    .code-box h3 {
+      font-size: 15px;
+      color: #E2E8F0;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .code-box pre {
+      color: #A5B4FC;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13px;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================
+       THE LOADER COMPONENT (READY FOR FUNNEL INTEGRATION)
+       ========================================================== -->
+  <div id="madhav-site-loader" class="theme-dark">
+    <!-- Ambient grid & energy glow -->
+    <div class="loader-grid-ambient"></div>
+    <div class="solar-energy-halo"></div>
+
+    <div class="loader-stage">
+      <!-- Madhav Solar Logo with Solar Sweep Beam -->
+      <div class="logo-container">
+        <img src="./image.png" alt="Madhav Solar Energy" class="logo-img" id="loaderLogoImg">
+        <div class="solar-light-sweep"></div>
+      </div>
+
+      <!-- Live Progress Tracker -->
+      <div class="loader-status-wrap">
+        <div class="progress-track">
+          <div class="progress-bar" id="loaderProgressBar"></div>
+        </div>
+        
+        <div class="loader-info-row">
+          <span class="loader-status-text">
+            <span class="status-dot"></span>
+            <span id="loaderStatusMsg">Energizing System</span>
+          </span>
+          <span class="percent-number" id="loaderPercent">0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       DEMO PREVIEW PAGE (REVEALS UNDERNEATH)
+       ========================================================== -->
+  <nav class="demo-navbar">
+    <div class="demo-brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#259345" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2"></path>
+        <path d="M12 20v2"></path>
+        <path d="m4.93 4.93 1.41 1.41"></path>
+        <path d="m17.66 17.66 1.41 1.41"></path>
+        <path d="M2 12h2"></path>
+        <path d="M20 12h2"></path>
+        <path d="m6.34 17.66-1.41 1.41"></path>
+        <path d="m19.07 4.93-1.41 1.41"></path>
+      </svg>
+      Madhav Solar <span>Funnel</span>
+      <div style="display: inline-flex; background: rgba(255,255,255,0.06); border-radius: 99px; padding: 2px 4px; margin-left: 14px; gap: 4px; border: 1px solid rgba(255,255,255,0.1);">
+        <a href="./loader-draft3.html" style="padding: 4px 12px; font-size: 11px; text-decoration: none; border-radius: 99px; color: #94A3B8; font-weight: 600;">Draft 3 (Clean Light)</a>
+        <a href="./loader-preview.html" style="padding: 4px 12px; font-size: 11px; text-decoration: none; border-radius: 99px; background: #259345; color: #fff; font-weight: 600;">Draft 1 (Solar Beam)</a>
+        <a href="./loader-draft2.html" style="padding: 4px 12px; font-size: 11px; text-decoration: none; border-radius: 99px; color: #94A3B8; font-weight: 600;">Draft 2 (Industrial)</a>
+      </div>
+    </div>
+
+    <!-- Live Testing Controls -->
+    <div class="controls-panel">
+      <button class="btn btn-secondary" onclick="toggleTheme()" id="themeBtn">
+        Switch to Clean Light Theme
+      </button>
+      <button class="btn btn-secondary" onclick="toggleDismissStyle()" id="dismissBtn">
+        Exit Effect: Smooth Fade
+      </button>
+      <button class="btn btn-primary" onclick="replayLoader()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+        Replay Loader
+      </button>
+    </div>
+  </nav>
+
+  <main class="mock-hero">
+    <div class="badge-pill">Turnkey Solar EPC for Gujarat Industries</div>
+    <h1>Powering Factories With <br><span class="gradient-text">Clean Solar Energy</span></h1>
+    <p>Engineering high-efficiency rooftop & ground-mount solar plants for textiles, pharma, and chemical facilities across Surat & Pan-India.</p>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="num">200+</div>
+        <div class="lbl">MW Installed</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">550+</div>
+        <div class="lbl">Industrial Projects</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">2.8 Yr</div>
+        <div class="lbl">Avg. Payback Period</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">25 Yr</div>
+        <div class="lbl">Performance Guarantee</div>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <h3>🚀 How to Drop this Loader into any Funnel Page:</h3>
+      <pre>&lt;!-- Include in &lt;head&gt; or top of &lt;body&gt; --&gt;
+&lt;div id="madhav-site-loader" class="theme-dark"&gt;
+  &lt;div class="solar-energy-halo"&gt;&lt;/div&gt;
+  &lt;div class="loader-stage"&gt;
+    &lt;div class="logo-container"&gt;
+      &lt;img src="./image.png" alt="Madhav Solar" class="logo-img"&gt;
+      &lt;div class="solar-light-sweep"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="loader-status-wrap"&gt;
+      &lt;div class="progress-track"&gt;
+        &lt;div class="progress-bar" id="loaderProgressBar"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="./loader.js"&gt;&lt;/script&gt;</pre>
+    </div>
+  </main>
+
+  <!-- ==========================================================
+       JAVASCRIPT LOGIC
+       ========================================================== -->
+  <script>
+    let currentTheme = 'dark';
+    let dismissStyle = 'fade'; // 'fade' or 'curtain'
+
+    const loader = document.getElementById('madhav-site-loader');
+    const progressBar = document.getElementById('loaderProgressBar');
+    const percentLabel = document.getElementById('loaderPercent');
+    const statusMsg = document.getElementById('loaderStatusMsg');
+
+    const statusSteps = [
+      { at: 20, text: 'Analyzing Solar Irradiance' },
+      { at: 55, text: 'Optimizing Module Inverters' },
+      { at: 85, text: 'Calibrating Grid Sync' },
+      { at: 100, text: 'System Operational' }
+    ];
+
+    function runLoaderAnimation(duration = 1800) {
+      // Reset
+      loader.classList.remove('fade-out', 'curtain-up');
+      progressBar.style.width = '0%';
+      percentLabel.innerText = '0%';
+      statusMsg.innerText = 'Initializing System';
+
+      const startTime = performance.now();
+
+      function update(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Custom easing (ease-out cubic)
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+        const percent = Math.round(easedProgress * 100);
+
+        progressBar.style.width = percent + '%';
+        percentLabel.innerText = percent + '%';
+
+        // Update status message dynamically
+        for (let i = statusSteps.length - 1; i >= 0; i--) {
+          if (percent >= statusSteps[i].at) {
+            statusMsg.innerText = statusSteps[i].text;
+            break;
+          }
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          setTimeout(() => {
+            if (dismissStyle === 'curtain') {
+              loader.classList.add('curtain-up');
+            } else {
+              loader.classList.add('fade-out');
+            }
+          }, 250);
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    function replayLoader() {
+      runLoaderAnimation(1800);
+    }
+
+    function toggleTheme() {
+      const themeBtn = document.getElementById('themeBtn');
+      if (currentTheme === 'dark') {
+        currentTheme = 'light';
+        loader.classList.remove('theme-dark');
+        loader.classList.add('theme-light');
+        themeBtn.innerText = 'Switch to Dark Tech Theme';
+      } else {
+        currentTheme = 'dark';
+        loader.classList.remove('theme-light');
+        loader.classList.add('theme-dark');
+        themeBtn.innerText = 'Switch to Clean Light Theme';
+      }
+      replayLoader();
+    }
+
+    function toggleDismissStyle() {
+      const dismissBtn = document.getElementById('dismissBtn');
+      if (dismissStyle === 'fade') {
+        dismissStyle = 'curtain';
+        dismissBtn.innerText = 'Exit Effect: Curtain Slide Up';
+      } else {
+        dismissStyle = 'fade';
+        dismissBtn.innerText = 'Exit Effect: Smooth Fade';
+      }
+      replayLoader();
+    }
+
+    // Auto-run on initial load
+    window.addEventListener('DOMContentLoaded', () => {
+      runLoaderAnimation(1800);
+    });
+  </script>
+</body>
+</html>

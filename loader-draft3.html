@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madhav Solar Energy — Draft 3: Pure Minimalist Light</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #182B68;
+      --green: #259345;
+      --bg-white: #FFFFFF;
+      --bg-subtle: #F8FAFC;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-white);
+      color: #0F172A;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ==========================================================
+       DRAFT 3: PURE MINIMALIST LIGHT LOADER (ZERO CLUTTER)
+       ========================================================== */
+    #pure-light-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #F6F8FB 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  visibility 0.65s;
+      will-change: opacity, transform;
+    }
+
+    /* Soft, warm daylight glow behind the logo (extremely subtle & natural) */
+    .soft-sunlight-glow {
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 147, 69, 0.09) 0%, rgba(245, 158, 11, 0.05) 40%, transparent 70%);
+      filter: blur(50px);
+      pointer-events: none;
+      animation: subtleSunPulse 2.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes subtleSunPulse {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      100% { transform: scale(1.1); opacity: 1; }
+    }
+
+    /* Center Stage: Just the Logo & Clean Hairline Progress */
+    .clean-stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      z-index: 2;
+      padding: 20px;
+    }
+
+    /* Logo Container: Sits directly on white, borderless & crisp */
+    .logo-hero-wrap {
+      position: relative;
+      width: clamp(260px, 42vw, 380px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: smoothLogoEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes smoothLogoEntrance {
+      0% {
+        opacity: 0;
+        transform: translateY(14px) scale(0.97);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .clean-logo-img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 6px 16px rgba(24, 43, 104, 0.06));
+    }
+
+    /* Natural sunlight beam that sweeps across the letters */
+    .sunlight-sheen {
+      position: absolute;
+      inset: -10px -20px;
+      background: linear-gradient(
+        110deg,
+        transparent 0%,
+        transparent 35%,
+        rgba(255, 255, 255, 0.85) 50%,
+        transparent 65%,
+        transparent 100%
+      );
+      transform: translateX(-140%);
+      animation: naturalSunSheen 2.2s 0.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
+
+    @keyframes naturalSunSheen {
+      0% { transform: translateX(-140%); }
+      55%, 100% { transform: translateX(140%); }
+    }
+
+    /* Ultra-clean Minimalist Line Indicator */
+    .hairline-tracker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      width: 180px;
+    }
+
+    .hairline-bar {
+      width: 100%;
+      height: 3px;
+      background: #E2E8F0;
+      border-radius: 99px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hairline-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #182B68 0%, #259345 100%);
+      border-radius: 99px;
+      transition: width 0.12s ease-out;
+    }
+
+    .status-caption {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #64748B;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .percent-text {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    /* Dismiss Animation: Super smooth gentle lift and fade */
+    #pure-light-loader.dismissed {
+      opacity: 0;
+      transform: scale(1.02);
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* ==========================================================
+       CLEAN LIGHT LANDING PAGE UNDERNEATH
+       ========================================================== */
+    .clean-navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #E2E8F0;
+      padding: 16px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .nav-brand span { color: var(--green); }
+
+    .nav-switcher {
+      display: flex;
+      background: #F1F5F9;
+      border-radius: 99px;
+      padding: 3px;
+      gap: 3px;
+    }
+
+    .nav-tab {
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #64748B;
+      border-radius: 99px;
+      transition: all 0.2s ease;
+    }
+    .nav-tab.active {
+      background: #FFFFFF;
+      color: var(--navy);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .btn-replay {
+      padding: 8px 18px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid #E2E8F0;
+      background: #FFFFFF;
+      color: var(--navy);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
+    }
+    .btn-replay:hover {
+      background: #F8FAFC;
+      border-color: #CBD5E1;
+      transform: translateY(-1px);
+    }
+
+    /* Clean Hero Underneath */
+    .clean-hero {
+      max-width: 1080px;
+      margin: 80px auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 99px;
+      background: rgba(37, 147, 69, 0.08);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .clean-hero h1 {
+      font-size: clamp(34px, 5.2vw, 58px);
+      font-weight: 800;
+      line-height: 1.18;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .clean-hero h1 span {
+      color: var(--green);
+    }
+
+    .clean-hero p {
+      color: #64748B;
+      font-size: 18px;
+      max-width: 620px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .clean-stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 20px;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .clean-stat-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+    }
+
+    .clean-stat-card .val {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .clean-stat-card .val span {
+      color: var(--green);
+    }
+
+    .clean-stat-card .label {
+      color: #64748B;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================
+       DRAFT 3: MINIMALIST LIGHT LOADER COMPONENT
+       ========================================================== -->
+  <div id="pure-light-loader">
+    <!-- Soft Sunlight Halo -->
+    <div class="soft-sunlight-glow"></div>
+
+    <div class="clean-stage">
+      <!-- Madhav Solar Logo with Clean Sun Sheen -->
+      <div class="logo-hero-wrap">
+        <img src="./image.png" alt="Madhav Solar Energy" class="clean-logo-img">
+        <div class="sunlight-sheen"></div>
+      </div>
+
+      <!-- Hairline Minimalist Progress -->
+      <div class="hairline-tracker">
+        <div class="hairline-bar">
+          <div class="hairline-fill" id="hairlineFill"></div>
+        </div>
+        <div class="status-caption">
+          <span>Loading Experience</span>
+          <span class="percent-text" id="hairlinePercent">0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       CLEAN LIGHT LANDING PAGE
+       ========================================================== -->
+  <nav class="clean-navbar">
+    <div class="nav-brand">
+      Madhav Solar <span>Funnel</span>
+    </div>
+
+    <!-- Tab Switcher between drafts -->
+    <div class="nav-switcher">
+      <a href="./loader-draft3.html" class="nav-tab active">Draft 3 (Clean Light)</a>
+      <a href="./loader-preview.html" class="nav-tab">Draft 1 (Solar Beam)</a>
+      <a href="./loader-draft2.html" class="nav-tab">Draft 2 (Industrial)</a>
+    </div>
+
+    <button class="btn-replay" onclick="replayDraft3()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+      Replay Clean Loader
+    </button>
+  </nav>
+
+  <main class="clean-hero">
+    <div class="pill-badge">Commercial & Industrial Solar EPC</div>
+    <h1>Powering Factories With <br><span>Clean, Reliable Solar Energy</span></h1>
+    <p>High-performance rooftop and open-access solar engineered for industrial facilities in Surat and across Gujarat.</p>
+
+    <div class="clean-stats-row">
+      <div class="clean-stat-card">
+        <div class="val">200<span>+</span></div>
+        <div class="label">MW Installed Capacity</div>
+      </div>
+      <div class="clean-stat-card">
+        <div class="val">550<span>+</span></div>
+        <div class="label">Projects Delivered</div>
+      </div>
+      <div class="clean-stat-card">
+        <div class="val">25<span>Yr</span></div>
+        <div class="label">Performance Guarantee</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================
+       DRAFT 3 JAVASCRIPT
+       ========================================================== -->
+  <script>
+    const loader = document.getElementById('pure-light-loader');
+    const fill = document.getElementById('hairlineFill');
+    const percentEl = document.getElementById('hairlinePercent');
+
+    function runDraft3(duration = 1600) {
+      loader.classList.remove('dismissed');
+      fill.style.width = '0%';
+      percentEl.innerText = '0%';
+
+      const startTime = performance.now();
+
+      function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Gentle smooth ease-out
+        const eased = 1 - Math.pow(1 - progress, 2.5);
+        const percent = Math.round(eased * 100);
+
+        fill.style.width = percent + '%';
+        percentEl.innerText = percent + '%';
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          setTimeout(() => {
+            loader.classList.add('dismissed');
+          }, 200);
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    function replayDraft3() {
+      runDraft3(1600);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      runDraft3(1600);
+    });
+  </script>
+</body>
+</html>

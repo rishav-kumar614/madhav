@@ -1,0 +1,205 @@
+/* ==========================================================================
+   MADHAV SOLAR ENERGY — PREMIUM SITE LOADER COMPONENT
+   File: loader-component.css
+   ========================================================================== */
+
+#madhav-site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), 
+              visibility 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: opacity, transform;
+}
+
+/* Luxury Dark Mode */
+#madhav-site-loader.theme-dark {
+  background: radial-gradient(circle at center, #0F172A 0%, #060913 100%);
+}
+
+/* Clean Corporate Light Mode */
+#madhav-site-loader.theme-light {
+  background: radial-gradient(circle at center, #FFFFFF 0%, #E9EDF2 100%);
+}
+
+/* Ambient Solar Energy Halo */
+#madhav-site-loader .solar-energy-halo {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 147, 69, 0.22) 0%, rgba(24, 43, 104, 0.15) 50%, transparent 70%);
+  filter: blur(40px);
+  animation: madhavPulseHalo 2.4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+#madhav-site-loader.theme-light .solar-energy-halo {
+  background: radial-gradient(circle, rgba(37, 147, 69, 0.18) 0%, rgba(24, 43, 104, 0.08) 50%, transparent 70%);
+}
+
+@keyframes madhavPulseHalo {
+  0% { transform: scale(0.85); opacity: 0.5; }
+  100% { transform: scale(1.15); opacity: 0.95; }
+}
+
+/* Stage */
+#madhav-site-loader .loader-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  z-index: 2;
+  padding: 24px;
+}
+
+/* Logo Box */
+#madhav-site-loader .logo-container {
+  position: relative;
+  width: clamp(260px, 45vw, 400px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: madhavLogoIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes madhavLogoIn {
+  0% { opacity: 0; transform: translateY(16px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+#madhav-site-loader .logo-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+#madhav-site-loader.theme-dark .logo-img {
+  background: rgba(255, 255, 255, 0.96);
+  padding: 16px 26px;
+  border-radius: 18px;
+  box-shadow: 
+    0 15px 35px -5px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.15),
+    0 0 45px rgba(37, 147, 69, 0.25);
+}
+
+#madhav-site-loader.theme-light .logo-img {
+  filter: drop-shadow(0 8px 24px rgba(24, 43, 104, 0.08));
+}
+
+/* Solar Light Beam Sweep */
+#madhav-site-loader .solar-light-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.75) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  transform: translateX(-150%);
+  animation: madhavSolarSweep 2s 0.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes madhavSolarSweep {
+  0% { transform: translateX(-150%); }
+  60%, 100% { transform: translateX(150%); }
+}
+
+/* Status & Progress */
+#madhav-site-loader .loader-status-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 220px;
+}
+
+#madhav-site-loader .progress-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  overflow: hidden;
+  position: relative;
+}
+
+#madhav-site-loader.theme-light .progress-track {
+  background: rgba(24, 43, 104, 0.12);
+}
+
+#madhav-site-loader .progress-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #182B68 0%, #259345 70%, #4ADE80 100%);
+  border-radius: 99px;
+  box-shadow: 0 0 10px rgba(37, 147, 69, 0.5);
+  transition: width 0.15s ease-out;
+}
+
+#madhav-site-loader .loader-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #94A3B8;
+  font-family: monospace, sans-serif;
+}
+
+#madhav-site-loader.theme-light .loader-info-row {
+  color: #64748B;
+}
+
+#madhav-site-loader .status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #259345;
+  box-shadow: 0 0 8px #259345;
+  animation: madhavBlink 1s infinite alternate;
+  margin-right: 5px;
+}
+
+@keyframes madhavBlink {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+#madhav-site-loader .percent-number {
+  color: #259345;
+  font-weight: 700;
+}
+
+/* Exit transitions */
+#madhav-site-loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#madhav-site-loader.curtain-up {
+  transform: translateY(-100%);
+  opacity: 0.98;
+  visibility: hidden;
+  pointer-events: none;
+}

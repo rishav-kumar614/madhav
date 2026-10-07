@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madhav Solar Energy — C&I Solar Decision-Making Funnel</title>
+  <meta name="description" content="Turn long-term power-cost exposure into a predictable, engineered business asset. Turnkey commercial and industrial solar EPC in Gujarat & Pan-India.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       DRAFT 1 SITE LOADER COMPONENT (Integrated as requested)
+       ===================================================================== -->
+  <div id="madhav-site-loader">
+    <div class="loader-ambient-halo"></div>
+    <div class="loader-stage">
+      <div class="loader-logo-wrap">
+        <img src="./image.png" alt="Madhav Solar Energy" class="loader-logo-img">
+        <div class="loader-solar-sweep"></div>
+      </div>
+      <div class="loader-progress-wrap">
+        <div class="loader-progress-track">
+          <div class="loader-progress-bar" id="loaderBar"></div>
+        </div>
+        <div class="loader-status-row">
+          <span id="loaderStatus">Initializing Grid</span>
+          <span class="pct" id="loaderPct">0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       GLOBAL FULL-PAGE SCROLL-DRIVEN BACKGROUND CANVAS
+       ===================================================================== -->
+  <div id="siteBackgroundCanvasWrap" class="site-bg-canvas-wrap">
+    <canvas id="heroScrubCanvas" class="hero-canvas"></canvas>
+  </div>
+
+  <!-- =====================================================================
+       SITE HEADER / STICKY B2B NAVIGATION
+       ===================================================================== -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo-link">
+        <img src="./image.png" alt="Madhav Solar Energy Logo">
+      </a>
+
+      <nav class="nav-menu-wrapper">
+        <ul class="nav-menu">
+          <li><a href="#problem" class="nav-link">Business Case</a></li>
+          <li><a href="#sectors" class="nav-link">Sectors</a></li>
+          <li><a href="#solutions" class="nav-link">Architecture</a></li>
+          <li><a href="#cfo" class="nav-link">CFO Economics</a></li>
+          <li><a href="#process" class="nav-link">Process</a></li>
+          <li><a href="./faq.html" class="nav-link">Boardroom & FAQs</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="tel:+919903737437" class="phone-quicklink">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>+91 99037 37437</span>
+        </a>
+        <a href="#assessment-section" class="btn btn-primary btn-sm cta-assessment-trigger nav-cta-btn">
+          Get Your Solar Opportunity Assessment
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       SECTION 1: HERO SECTION
+       ===================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-live-dot"></span>
+          <span class="hero-badge-tag">UTILITY & INDUSTRIAL SOLAR EPC</span>
+          <span class="hero-badge-sep">•</span>
+          <span class="hero-badge-meta">200+ MW COMMISSIONED</span>
+        </div>
+        
+        <h1 class="hero-headline">
+          Your Energy Cost Shouldn’t Control <br>
+          <span class="hero-headline-accent">Your Growth.</span>
+        </h1>
+
+        <p class="hero-subheadline">
+          Lock C&I power costs at <strong>₹3.20/unit</strong> — shielding operating EBITDA from volatile grid tariff escalations.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#assessment-section" class="btn btn-hero-primary cta-assessment-trigger">
+            <span>Get Solar Opportunity Assessment</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="tel:+919903737437" class="btn btn-hero-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Speak With an Expert</span>
+          </a>
+        </div>
+
+        <!-- Micro-Trust Assurance -->
+        <div class="hero-trust-row">
+          <div class="hero-trust-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#259345" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Zero Plant Downtime</span>
+          </div>
+          <div class="hero-trust-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#259345" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Non-Penetrative Clamps</span>
+          </div>
+          <div class="hero-trust-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#259345" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>100% GEDA / CEIG Handled</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SECTION 2: THE BUSINESS PROBLEM
+       ===================================================================== -->
+  <section class="section section-alt" id="problem">
+    <div class="container">
+      <div class="section-header text-center reveal-on-scroll">
+        <div class="section-eyebrow">The Business Case</div>
+        <h2 class="section-title">Solar Is an EBITDA & Economics Decision.</h2>
+        <p class="section-lead">Lock operating power costs and shield your bottom line from grid tariff volatility.</p>
+      </div>
+
+      <!-- Centered Vertical Timeline Tree with Branches -->
+      <div class="factors-timeline-tree reveal-on-scroll">
+        <div class="timeline-spine-line"></div>
+
+        <!-- Branch 1: Factor 01 (Left Branch) -->
+        <div class="timeline-branch branch-left">
+          <div class="branch-card-wrap">
+            <div class="branch-card">
+              <span class="factor-tag">FACTOR 01</span>
+              <h4>Operating Margins</h4>
+              <p>Shield production EBITDA against rising DISCOM power tariffs.</p>
+            </div>
+            <div class="branch-arm"></div>
+          </div>
+          <div class="spine-node-pin">01</div>
+          <div class="branch-spacer"></div>
+        </div>
+
+        <!-- Branch 2: Factor 02 (Right Branch) -->
+        <div class="timeline-branch branch-right">
+          <div class="branch-spacer"></div>
+          <div class="spine-node-pin">02</div>
+          <div class="branch-card-wrap">
+            <div class="branch-arm"></div>
+            <div class="branch-card">
+              <span class="factor-tag">FACTOR 02</span>
+              <h4>Cost Predictability</h4>
+              <p>Eliminate peak daytime penalties with fixed-rate solar generation.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branch 3: Factor 03 (Left Branch) -->
+        <div class="timeline-branch branch-left">
+          <div class="branch-card-wrap">
+            <div class="branch-card">
+              <span class="factor-tag">FACTOR 03</span>
+              <h4>Competitiveness & ESG</h4>
+              <p>De-carbonize Scope-2 emissions to win global client mandates.</p>
+            </div>
+            <div class="branch-arm"></div>
+          </div>
+          <div class="spine-node-pin">03</div>
+          <div class="branch-spacer"></div>
+        </div>
+      </div>
+
+      <!-- Strategic Pivot Banner -->
+      <div class="pivot-banner reveal-on-scroll">
+        <div class="pivot-old">
+          <div class="pivot-label">The Old Question</div>
+          <div class="pivot-quote">“Should we install solar panels?”</div>
+        </div>
+        <div class="pivot-new">
+          <div class="pivot-label">The Strategic Question</div>
+          <div class="pivot-quote">“What role does solar play in our long-term power strategy?”</div>
+        </div>
+      </div>
+
+
+      <!-- Sub-Block 2: The Strategic Value Pillars (4-Quadrant Branched Circular Hub) -->
+      <div class="merged-sub-block reveal-on-scroll">
+        <div class="merged-block-title-wrap">
+          <div class="section-eyebrow">Strategic Value Proposition</div>
+          <h3>Solar Engineered Around Four Strategic Quadrants</h3>
+          <p><strong>Engineering precision. Execution reliability. Commercial viability.</strong></p>
+        </div>
+
+        <div class="pillars-quadrant-wrapper">
+          <!-- Central Circle Hub with 4 Radiating Branches -->
+          <div class="quadrant-center-hub">
+            <div class="hub-branch-arm arm-tl"></div>
+            <div class="hub-branch-arm arm-tr"></div>
+            <div class="hub-branch-arm arm-bl"></div>
+            <div class="hub-branch-arm arm-br"></div>
+            <div class="center-hub-node">
+              <div class="hub-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+              </div>
+              <span class="hub-node-label">VALUE CORE</span>
+            </div>
+          </div>
+
+          <div class="quadrant-cards-grid">
+            <!-- Quadrant 01: Top-Left -->
+            <div class="quadrant-card card-tl reveal-on-scroll delay-100">
+              <div class="pillar-card-header">
+                <div class="pillar-icon-wrap">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                </div>
+                <span class="quadrant-tag">Q1 // MARGINS</span>
+              </div>
+              <h4>Lower Grid Dependence</h4>
+              <p>Shield plant EBITDA against rising utility base tariffs.</p>
+            </div>
+
+            <!-- Quadrant 02: Top-Right -->
+            <div class="quadrant-card card-tr reveal-on-scroll delay-200">
+              <div class="pillar-card-header">
+                <div class="pillar-icon-wrap">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </div>
+                <span class="quadrant-tag">Q2 // VISIBILITY</span>
+              </div>
+              <h4>Better Cost Visibility</h4>
+              <p>Lock fixed power tariffs for 25-year budget certainty.</p>
+            </div>
+
+            <!-- Quadrant 03: Bottom-Left -->
+            <div class="quadrant-card card-bl reveal-on-scroll delay-300">
+              <div class="pillar-card-header">
+                <div class="pillar-icon-wrap">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                </div>
+                <span class="quadrant-tag">Q3 // ROI</span>
+              </div>
+              <h4>Stronger Business Economics</h4>
+              <p>2.8-year payback with 40% Year-1 tax depreciation.</p>
+            </div>
+
+            <!-- Quadrant 04: Bottom-Right -->
+            <div class="quadrant-card card-br reveal-on-scroll delay-400">
+              <div class="pillar-card-header">
+                <div class="pillar-icon-wrap">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                </div>
+                <span class="quadrant-tag">Q4 // ESG</span>
+              </div>
+              <h4>Sustainable Growth</h4>
+              <p>Cut Scope-2 carbon emissions with zero plant disruption.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-Block 3: Why Madhav Solar Execution Standards -->
+      <div class="merged-sub-block reveal-on-scroll">
+        <div class="merged-block-title-wrap">
+          <div class="section-eyebrow">Execution Benchmark</div>
+          <h3>Businesses Need More Than an EPC Contractor</h3>
+          <p>A solar asset is expected to perform for 25+ years. Poor engineering, weak execution, or incorrect commercial planning creates permanent operational consequences.</p>
+        </div>
+
+        <!-- Centered Benchmark Timeline Tree -->
+        <div class="benchmark-timeline-tree reveal-on-scroll">
+          <div class="benchmark-spine-line"></div>
+
+          <!-- Step 01: Engineering (Left Branch) -->
+          <div class="benchmark-branch branch-left">
+            <div class="branch-card-wrap">
+              <div class="benchmark-card">
+                <div class="benchmark-card-head">
+                  <div class="benchmark-icon-wrap">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                  </div>
+                  <span class="benchmark-tag">01 // ENGINEERING</span>
+                </div>
+                <h4>Precision Engineering</h4>
+                <p>Structural PEB roof analysis, shadow curves, and CAD modeling.</p>
+              </div>
+              <div class="branch-arm"></div>
+            </div>
+            <div class="benchmark-node-pin">01</div>
+            <div class="branch-spacer"></div>
+          </div>
+
+          <!-- Step 02: Execution (Right Branch) -->
+          <div class="benchmark-branch branch-right">
+            <div class="branch-spacer"></div>
+            <div class="benchmark-node-pin">02</div>
+            <div class="branch-card-wrap">
+              <div class="branch-arm"></div>
+              <div class="benchmark-card">
+                <div class="benchmark-card-head">
+                  <div class="benchmark-icon-wrap">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  </div>
+                  <span class="benchmark-tag">02 // EXECUTION</span>
+                </div>
+                <h4>Turnkey Execution</h4>
+                <p>Non-penetrative standing-seam clamps with zero factory downtime.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 03: Economics (Left Branch) -->
+          <div class="benchmark-branch branch-left">
+            <div class="branch-card-wrap">
+              <div class="benchmark-card">
+                <div class="benchmark-card-head">
+                  <div class="benchmark-icon-wrap">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                  </div>
+                  <span class="benchmark-tag">03 // ECONOMICS</span>
+                </div>
+                <h4>Bankable Economics</h4>
+                <p>Locked ₹3.20/unit tariff modeling, 40% tax shield, and audited ROI.</p>
+              </div>
+              <div class="branch-arm"></div>
+            </div>
+            <div class="benchmark-node-pin">03</div>
+            <div class="branch-spacer"></div>
+          </div>
+
+          <!-- Step 04: Scale (Right Branch) -->
+          <div class="benchmark-branch branch-right">
+            <div class="branch-spacer"></div>
+            <div class="benchmark-node-pin">04</div>
+            <div class="branch-card-wrap">
+              <div class="branch-arm"></div>
+              <div class="benchmark-card">
+                <div class="benchmark-card-head">
+                  <div class="benchmark-icon-wrap">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                  </div>
+                  <span class="benchmark-tag">04 // SCALE</span>
+                </div>
+                <h4>Industrial Scale</h4>
+                <p>Multi-MW execution with 100% GEDA and CEIG statutory compliance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Centered Core Benchmark Quote Pill -->
+        <div class="benchmark-callout-pill reveal-on-scroll">
+          <p class="benchmark-callout-text">
+            “Madhav Solar does not only build solar projects. It helps businesses make better energy decisions.”
+          </p>
+        </div>
+
+        <div class="execution-photo-banner reveal-on-scroll delay-100">
+          <div class="exec-photo-card">
+            <img src="./1-1.jpg" alt="Certified PEB Solar Installation on Standing-Seam Tin Shed" class="exec-photo-img">
+            <div class="exec-photo-overlay">
+              <span class="exec-photo-tag">SITE ENGINEERING STANDARD</span>
+              <h4>Non-Penetrative Clamp Assembly</h4>
+              <p>Torque-calibrated aluminium clamps with EPDM weather seals. Zero roof perforations, preserving manufacturer warranties.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diagram 5: Tier-1 Industrial Hardware Anatomy & Engineering Matrix -->
+        <div class="hardware-anatomy-card reveal-on-scroll delay-200">
+          <div class="hardware-card-header">
+            <div class="section-eyebrow">Hardware Integrity Standard</div>
+            <h3>Tier-1 Industrial Hardware Anatomy</h3>
+            <p>Utility-grade components engineered for 25-year lifecycle reliability.</p>
+          </div>
+
+          <div class="hardware-grid-4">
+            <!-- Component 1 -->
+            <div class="hardware-item-box">
+              <div class="hardware-svg-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>
+                </svg>
+              </div>
+              <div class="hardware-part-tag">MODULE TECH // 01</div>
+              <h4>Bifacial TOPCon Cells</h4>
+              <p>N-Type dual-glass modules with 22.8% efficiency and dual-side yield.</p>
+              <span class="hardware-spec-badge">30-Yr Warranty</span>
+            </div>
+
+            <!-- Component 2 -->
+            <div class="hardware-item-box">
+              <div class="hardware-svg-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <div class="hardware-part-tag">ROOF INTEGRITY // 02</div>
+              <h4>Non-Penetrative Clamps</h4>
+              <p>Aircraft-grade standing-seam aluminium with zero roof perforations.</p>
+              <span class="hardware-spec-badge">180 km/h Wind Rated</span>
+            </div>
+
+            <!-- Component 3 -->
+            <div class="hardware-item-box">
+              <div class="hardware-svg-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="4" width="16" height="16" rx="2"/>
+                  <path d="M9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/>
+                </svg>
+              </div>
+              <div class="hardware-part-tag">POWER CONVERSION // 03</div>
+              <h4>Smart String Inverters</h4>
+              <p>Multi-MPPT tracking with 98.9% European efficiency & AFCI protection.</p>
+              <span class="hardware-spec-badge">IP66 / Smart Cooling</span>
+            </div>
+
+            <!-- Component 4 -->
+            <div class="hardware-item-box">
+              <div class="hardware-svg-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+              </div>
+              <div class="hardware-part-tag">ASSET TELEMETRY // 04</div>
+              <h4>IoT SCADA Weather Hub</h4>
+              <p>Class-A pyranometers with 24/7 cloud string-level fault monitoring.</p>
+              <span class="hardware-spec-badge">24/7 Cloud Sync</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SECTION 5: WHO WE SOLVE FOR (SECTORS)
+       ===================================================================== -->
+  <section class="section" id="sectors">
+    <div class="container">
+      <div class="section-header text-center reveal-on-scroll">
+        <div class="section-eyebrow">Sector-Specific Solutions</div>
+        <h2 class="section-title">Different Industries. Different Energy Problems.</h2>
+        <p class="section-lead">Solar should not be marketed using one generic message. Each industrial sector has a distinct commercial trigger.</p>
+      </div>
+
+      <div class="sector-tabs-nav reveal-on-scroll">
+        <button class="sector-tab-btn active" data-target="sector-mfg">Manufacturing</button>
+        <button class="sector-tab-btn" data-target="sector-warehousing">Warehousing & Logistics</button>
+        <button class="sector-tab-btn" data-target="sector-hospitality">Hospitality</button>
+        <button class="sector-tab-btn" data-target="sector-healthcare">Healthcare</button>
+        <button class="sector-tab-btn" data-target="sector-cre">Commercial Real Estate</button>
+        <button class="sector-tab-btn" data-target="sector-datacenters">Data Centres</button>
+      </div>
+
+      <!-- Sector Content Cards (Switched via JS) -->
+      <div class="sector-content-card reveal-on-scroll" id="sector-mfg">
+        <div class="sector-info-col">
+          <h3 class="sector-heading">Manufacturing & Heavy Industry</h3>
+          <p class="sector-challenge">High continuous daytime load and exposure to peak industrial utility tariff slabs.</p>
+          <div class="sector-angle-box">
+            <div class="sector-angle-label">Strategic Angle</div>
+            <div class="sector-angle-text">Lock in predictable power tariffs to protect manufacturing operating margins.</div>
+          </div>
+          <div class="sector-meta-list">
+            <div class="sector-meta-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Direct solar sync with daytime engineering, textile, and chemical load curves.</span>
+            </div>
+            <div class="sector-meta-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Non-penetrative standing seam clamps engineered for 100% leak-proof PEB roofs.</span>
+            </div>
+          </div>
+        </div>
+        <div class="sector-media-col">
+          <div class="sector-image-card">
+            <img src="./2-2.jpg" alt="Manufacturing Solar Quality Control" class="sector-feature-img">
+            <div class="sector-image-overlay">
+              <span class="sector-badge-pill">1 MW – 10 MW+</span>
+              <span class="sector-badge-caption">PEB Structural Engineering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sector-content-card" id="sector-warehousing" style="display: none;">
+        <div class="sector-info-col">
+          <h3 class="sector-heading">Warehousing & Logistics</h3>
+          <p class="sector-challenge">Vast unmonetized rooftop infrastructure with modest daytime base consumption.</p>
+          <div class="sector-angle-box">
+            <div class="sector-angle-label">Strategic Angle</div>
+            <div class="sector-angle-text">Monetize idle industrial roof space into an active clean energy asset.</div>
+          </div>
+          <div class="sector-meta-list">
+            <div class="sector-meta-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Net-metering or Open Access power wheeling to sister facilities.</span>
+            </div>
+            <div class="sector-meta-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Immediate enhancement of asset valuation and green logistics certification.</span>
+            </div>
+          </div>
+        </div>
+        <div class="sector-media-col">
+          <div class="sector-image-card">
+            <img src="./2-1.jpg" alt="Logistics Warehouse Solar Array" class="sector-feature-img">
+            <div class="sector-image-overlay">
+              <span class="sector-badge-pill">500 kWp – 5 MWp</span>
+              <span class="sector-badge-caption">Rooftop Asset Monetisation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sector-content-card" id="sector-hospitality" style="display: none;">
+        <div class="sector-info-col">
+          <h3 class="sector-heading">Hospitality & Hotels</h3>
+          <p class="sector-challenge">Heavy 24/7 HVAC and laundry energy consumption coupled with guest ESG expectations.</p>
+          <div class="sector-angle-box">
+            <div class="sector-angle-label">Strategic Angle</div>
+            <div class="sector-angle-text">Cut daytime HVAC electricity costs while elevating guest sustainability credentials.</div>
+          </div>
+          <div class="sector-meta-list">
+            <div class="sector-meta-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Direct power offset for commercial HVAC chillers during peak daytime heat.</span>
+            </div>
+            <div class="sector-meta-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Architectural solar canopies that preserve premium resort aesthetics.</span>
+            </div>
+          </div>
+        </div>
+        <div class="sector-media-col">
+          <div class="sector-image-card">
+            <img src="./How-It-Works.jpg" alt="Hospitality Solar Canopy" class="sector-feature-img">
+            <div class="sector-image-overlay">
+              <span class="sector-badge-pill">200 kWp – 1.5 MWp</span>
+              <span class="sector-badge-caption">HVAC Offset & Architecture</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sector-content-card" id="sector-healthcare" style="display: none;">
+        <div class="sector-info-col">
+          <h3 class="sector-heading">Healthcare & Hospitals</h3>
+          <p class="sector-challenge">Critical continuous power demand with zero tolerance for grid volatility or outages.</p>
+          <div class="sector-angle-box">
+            <div class="sector-angle-label">Strategic Angle</div>
+            <div class="sector-angle-text">Build clean long-term energy independence without risking clinical reliability.</div>
+          </div>
+          <div class="sector-meta-list">
+            <div class="sector-meta-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Seamless synchronization with existing DG backup sets and hospital UPS grids.</span>
+            </div>
+            <div class="sector-meta-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Substantial monthly operational savings on heavy medical imaging systems.</span>
+            </div>
+          </div>
+        </div>
+        <div class="sector-media-col">
+          <div class="sector-image-card">
+            <img src="./medium-shot-engineer-wearing-protection-equipment-483x501.jpg" alt="Healthcare Critical Solar Integration" class="sector-feature-img">
+            <div class="sector-image-overlay">
+              <span class="sector-badge-pill">150 kWp – 1 MWp</span>
+              <span class="sector-badge-caption">Zero Downtime Synchronization</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sector-content-card" id="sector-cre" style="display: none;">
+        <div class="sector-info-col">
+          <h3 class="sector-heading">Commercial Real Estate</h3>
+          <p class="sector-challenge">Rising tenant CAM charges and corporate requirements for green-rated facilities.</p>
+          <div class="sector-angle-box">
+            <div class="sector-angle-label">Strategic Angle</div>
+            <div class="sector-angle-text">Lower common-area maintenance costs to attract and retain premium corporate tenants.</div>
+          </div>
+          <div class="sector-meta-list">
+            <div class="sector-meta-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Clean solar offset for lifts, central lobbies, and common basement loads.</span>
+            </div>
+            <div class="sector-meta-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Direct points qualification for LEED and IGBC Platinum green building certifications.</span>
+            </div>
+          </div>
+        </div>
+        <div class="sector-media-col">
+          <div class="sector-image-card">
+            <img src="./3-2.jpg" alt="Commercial Real Estate Solar Rooftop" class="sector-feature-img">
+            <div class="sector-image-overlay">
+              <span class="sector-badge-pill">300 kWp – 2 MWp</span>
+              <span class="sector-badge-caption">CAM Reduction & LEED Ratings</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sector-content-card" id="sector-datacenters" style="display: none;">
+        <div class="sector-info-col">
+          <h3 class="sector-heading">Data Centres & Tech Parks</h3>
+          <p class="sector-challenge">High energy intensity, 100% uptime guarantees, and enterprise decarbonisation mandates.</p>
+          <div class="sector-angle-box">
+            <div class="sector-angle-label">Strategic Angle</div>
+            <div class="sector-angle-text">Secure large-scale, high-uptime renewable power at hedged long-term tariffs.</div>
+          </div>
+          <div class="sector-meta-list">
+            <div class="sector-meta-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Structured Open Access and Group Captive solar power wheeling at multi-MW scale.</span>
+            </div>
+            <div class="sector-meta-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Bankable power purchase agreements compliant with state regulatory frameworks.</span>
+            </div>
+          </div>
+        </div>
+        <div class="sector-media-col">
+          <div class="sector-image-card">
+            <img src="./Blog-Post-2-1.png" alt="Data Centre Open Access Solar Array" class="sector-feature-img">
+            <div class="sector-image-overlay">
+              <span class="sector-badge-pill">5 MWp – 50 MWp</span>
+              <span class="sector-badge-caption">Group Captive & Open Access</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SECTION 6: SOLUTION ARCHITECTURE
+       ===================================================================== -->
+  <section class="section section-alt" id="solutions">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <div class="section-eyebrow">Solution Architecture</div>
+        <h2 class="section-title">The Right Solar Model Depends on Your Business.</h2>
+        <p class="section-lead">There is no single solution that fits every organisation. The correct model depends on your power consumption, infrastructure, available space, and long-term capital allocation.</p>
+      </div>
+
+      <div class="architecture-grid">
+        <div class="arch-card reveal-on-scroll delay-100">
+          <div class="arch-img-wrap">
+            <img src="./3.jpg" alt="Commercial & Industrial Rooftop Solar Installation" class="arch-card-img">
+          </div>
+          <div class="arch-card-body">
+            <div class="arch-tag">MODEL 01 // ROOFTOP</div>
+            <h3>Rooftop Solar</h3>
+            <p>Zero land cost. Direct daytime energy displacement on industrial PEB sheds.</p>
+          </div>
+        </div>
+
+        <div class="arch-card reveal-on-scroll delay-200">
+          <div class="arch-img-wrap">
+            <img src="./4.jpg" alt="Industrial Ground-Mounted Solar Plant" class="arch-card-img">
+          </div>
+          <div class="arch-card-body">
+            <div class="arch-tag">MODEL 02 // GROUND-MOUNT</div>
+            <h3>Ground-Mounted Solar</h3>
+            <p>Maximum power density and scale on dedicated land for heavy manufacturing.</p>
+          </div>
+        </div>
+
+        <div class="arch-card reveal-on-scroll delay-300">
+          <div class="arch-img-wrap">
+            <img src="./energy-483x501.jpg" alt="Group Captive Clean Renewable Energy Park" class="arch-card-img">
+          </div>
+          <div class="arch-card-body">
+            <div class="arch-tag">MODEL 03 // GROUP CAPTIVE</div>
+            <h3>Captive / Group Captive</h3>
+            <p>Off-site structured solar procurement without land capex; guaranteed tariff discount.</p>
+          </div>
+        </div>
+
+        <div class="arch-card reveal-on-scroll delay-400">
+          <div class="arch-img-wrap">
+            <img src="./8.jpg" alt="Utility-Scale Open Access Solar Wheeling" class="arch-card-img">
+          </div>
+          <div class="arch-card-body">
+            <div class="arch-tag">MODEL 04 // OPEN ACCESS</div>
+            <h3>Open Access Solar</h3>
+            <p>Multi-megawatt green power wheeled directly via state grid to your factory.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-Block: The Decision Framework Matrix -->
+      <div class="merged-sub-block reveal-on-scroll">
+        <div class="merged-block-title-wrap">
+          <div class="section-eyebrow">Strategic Evaluation Matrix</div>
+          <h3>Solar Decisions Should Be Made on Fit, Not Fashion</h3>
+          <p>A direct commercial comparison answering the most frequent boardroom buying dilemmas.</p>
+        </div>
+
+        <div class="decision-matrix-card">
+          <div class="decision-row decision-row-header">
+            <div>Strategic Dimension</div>
+            <div>Option A</div>
+            <div>Option B</div>
+          </div>
+          <div class="decision-row">
+            <div class="decision-aspect">Rooftop vs Ground-Mount</div>
+            <div class="decision-col-1"><strong>Rooftop:</strong> Ideal for facilities with unshaded PEB/RCC roofs; zero land cost, direct captive consumption.</div>
+            <div class="decision-col-2"><strong>Ground-Mount:</strong> Ideal when land is available; allows higher multi-MW scale and optimized tilt geometry.</div>
+          </div>
+          <div class="decision-row">
+            <div class="decision-aspect">CAPEX vs OPEX / RESCO</div>
+            <div class="decision-col-1"><strong>CAPEX:</strong> You own the asset; 100% of power savings accrue to business; 40% accelerated depreciation tax write-off.</div>
+            <div class="decision-col-2"><strong>OPEX / PPA:</strong> Zero upfront capital investment; pay only for power at a 30-40% discount to grid tariff.</div>
+          </div>
+          <div class="decision-row">
+            <div class="decision-aspect">Captive vs Open Access</div>
+            <div class="decision-col-1"><strong>Captive:</strong> Power generated and consumed within premises; zero grid transmission wheeling fees.</div>
+            <div class="decision-col-2"><strong>Open Access:</strong> Off-site plant wheeling power across state DISCOM grids for multi-facility enterprise loads.</div>
+          </div>
+          <div class="decision-row">
+            <div class="decision-aspect">On-Site vs Off-Site</div>
+            <div class="decision-col-1"><strong>On-Site:</strong> Rapid commissioning, simple regulatory approvals, maximum energy security on factory premises.</div>
+            <div class="decision-col-2"><strong>Off-Site:</strong> Unlimited scaling potential, unconstrained by factory shed dimensions or warehouse borders.</div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="#assessment-section" class="btn btn-primary cta-assessment-trigger">
+            Find the Right Solar Model for Your Business
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SECTION 7: THE CFO SECTION (FINANCIAL FEASIBILITY ENGINE)
+       ===================================================================== -->
+  <section class="section" id="cfo">
+    <div class="container">
+      <div class="cfo-core-box reveal-on-scroll">
+        <div class="cfo-box-header">
+          <div class="section-eyebrow" style="color: #4ADE80;">The CFO Section</div>
+          <h2>Before Solar Becomes an ESG Decision, It Has to Make Financial Sense.</h2>
+          <p>Senior financial decision-makers need answers to commercial questions — not just installed capacity numbers.</p>
+        </div>
+
+        <div class="cfo-questions-grid">
+          <div class="cfo-q-card">
+            <div class="q-label">COMMERCIAL CLARITY 01</div>
+            <div class="q-title">What is the investment vs payback?</div>
+          </div>
+          <div class="cfo-q-card">
+            <div class="q-label">COMMERCIAL CLARITY 02</div>
+            <div class="q-title">CAPEX ownership or OPEX (Zero-CAPEX)?</div>
+          </div>
+          <div class="cfo-q-card">
+            <div class="q-label">COMMERCIAL CLARITY 03</div>
+            <div class="q-title">What are the execution & production risks?</div>
+          </div>
+          <div class="cfo-q-card">
+            <div class="q-label">COMMERCIAL CLARITY 04</div>
+            <div class="q-title">How does tariff inflation affect margins?</div>
+          </div>
+          <div class="cfo-q-card">
+            <div class="q-label">COMMERCIAL CLARITY 05</div>
+            <div class="q-title">How does 40% depreciation impact tax?</div>
+          </div>
+          <div class="cfo-q-card">
+            <div class="q-label">COMMERCIAL CLARITY 06</div>
+            <div class="q-title">What are the 25-year lifecycle economics?</div>
+          </div>
+        </div>
+
+        <div class="cfo-statement-banner">
+          <div class="cfo-statement-text">
+            “Solar should be evaluated as a long-term business asset — not as a sustainability expense.”
+          </div>
+          <a href="#assessment-section" class="btn btn-accent btn-sm cta-assessment-trigger">
+            Request an ROI Discussion
+          </a>
+        </div>
+      </div>
+
+      <!-- Live Interactive B2B Feasibility Calculator -->
+      <div class="calculator-card reveal-on-scroll">
+        <div class="calc-grid">
+          <div class="calc-input-block">
+            <div class="section-eyebrow">Interactive Financial Engine</div>
+            <h3>Estimate Your Factory Solar Opportunity</h3>
+            <p>Select your average monthly electricity bill to calculate approximate plant capacity and economic returns.</p>
+
+            <div class="calc-slider-wrap">
+              <div class="calc-slider-label">
+                <span>Monthly Electricity Bill</span>
+                <span class="calc-slider-val" id="calcBillDisplay">₹5.0 Lakh / mo</span>
+              </div>
+              <input type="range" min="100000" max="3000000" step="50000" value="500000" class="calc-range-input" id="calcBillSlider">
+            </div>
+
+            <a href="#assessment-section" class="btn btn-primary cta-assessment-trigger" style="width: 100%;">
+              Get Detailed Feasibility Report for this Setup
+            </a>
+          </div>
+
+          <div class="calc-outputs-grid">
+            <div class="calc-out-item">
+              <div class="calc-out-label">Recommended Capacity</div>
+              <div class="calc-out-val" id="calcPlantSize">140 kWp</div>
+            </div>
+            <div class="calc-out-item">
+              <div class="calc-out-label">Est. Annual Power Savings</div>
+              <div class="calc-out-val accent" id="calcAnnualSavings">₹37.2 Lakh / yr</div>
+            </div>
+            <div class="calc-out-item">
+              <div class="calc-out-label">Expected Capital Payback</div>
+              <div class="calc-out-val" id="calcPayback">2.9 Years</div>
+            </div>
+            <div class="calc-out-item">
+              <div class="calc-out-label">25-Year Lifecycle Savings</div>
+              <div class="calc-out-val accent" id="calcLifetimeSavings">₹8.37 Cr</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-Block: Audited Industrial Outcomes (Project Proof) -->
+      <div class="merged-sub-block reveal-on-scroll">
+        <div class="merged-block-title-wrap">
+          <div class="section-eyebrow">Audited Industrial Proof</div>
+          <h3>Proof Measured in Balance Sheet Outcomes, Not Just Megawatts</h3>
+          <p>Most solar companies communicate “Project commissioned — X MW.” That shows activity. It does not show capability. Here is audited performance across operating industrial facilities.</p>
+        </div>
+
+        <div class="proof-cards-grid">
+          <!-- Project 1 -->
+          <div class="proof-case-card reveal-on-scroll delay-100">
+            <div class="case-img-wrap">
+              <img src="./technician-is-repairing-solar-panel-483x501.jpg" alt="Textile Weaving Mill Solar Rooftop Sachin Surat" class="case-card-img">
+              <span class="case-img-badge">Sachin GIDC • Surat</span>
+            </div>
+            <div class="case-card-header">
+              <span class="case-industry">Textile Weaving Mill</span>
+              <span class="case-capacity-pill">480 kWp</span>
+            </div>
+            <div class="case-body">
+              <div>
+                <div class="case-field-label">Challenge</div>
+                <div class="case-field-val">Thermal expansion & yarn dust requiring automated cleaning.</div>
+              </div>
+              <div>
+                <div class="case-field-label">Solution</div>
+                <div class="case-field-val">Elevated mounting + DGVCL net-metering in 45 days.</div>
+              </div>
+              <div class="case-outcome-highlight">
+                58% bill cut • 2.8 yr payback
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="proof-case-card reveal-on-scroll delay-200">
+            <div class="case-img-wrap">
+              <img src="./man-worker-firld-by-solar-panels-483x501.jpg" alt="Chemical Synthesis Unit Rooftop Solar Ankleshwar" class="case-card-img">
+              <span class="case-img-badge">Ankleshwar GIDC</span>
+            </div>
+            <div class="case-card-header">
+              <span class="case-industry">Chemical Synthesis</span>
+              <span class="case-capacity-pill">1.2 MWp</span>
+            </div>
+            <div class="case-body">
+              <div>
+                <div class="case-field-label">Challenge</div>
+                <div class="case-field-val">Aggressive corrosive fumes demanding high-grade coating.</div>
+              </div>
+              <div>
+                <div class="case-field-label">Solution</div>
+                <div class="case-field-val">Tier-1 TOPCon glass-glass + anodized aluminium frames.</div>
+              </div>
+              <div class="case-outcome-highlight">
+                ₹1.12 Cr/yr saved • 1,480 MT CO2
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="proof-case-card reveal-on-scroll delay-300">
+            <div class="case-img-wrap">
+              <img src="./hydrow-power2-483x501.jpg" alt="Cold Storage Infrastructure High-Load Power Optimization Sarthana" class="case-card-img">
+              <span class="case-img-badge">Sarthana • Surat</span>
+            </div>
+            <div class="case-card-header">
+              <span class="case-industry">Cold Storage</span>
+              <span class="case-capacity-pill">650 kWp</span>
+            </div>
+            <div class="case-body">
+              <div>
+                <div class="case-field-label">Challenge</div>
+                <div class="case-field-val">High summer peak cooling tariffs without voltage drops.</div>
+              </div>
+              <div>
+                <div class="case-field-label">Solution</div>
+                <div class="case-field-val">High-heat smart inverters + 24/7 IoT yield telemetry.</div>
+              </div>
+              <div class="case-outcome-highlight">
+                Zero peak penalty • 2.7 yr payback
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SECTION 10: THE 6-STEP PROCESS ROADMAP
+       ===================================================================== -->
+  <section class="section section-alt" id="process">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <div class="section-eyebrow">The Engineering Process</div>
+        <h2 class="section-title">From Energy Requirement to Executable Solar Roadmap</h2>
+        <p class="section-lead">A structured, six-stage turnkey process engineered for zero production disruption and guaranteed generation.</p>
+      </div>
+
+      <!-- Diagram 4: 6-Stage Turnkey Pipeline Motion Conduit & Interactive Dossier -->
+      <div class="pipeline-conduit-wrap reveal-on-scroll">
+        <div class="pipeline-track-card">
+          <!-- Animated Laser-Pulse SVG Pipeline Track -->
+          <svg viewBox="0 0 1050 80" class="pipeline-svg-conduit" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="laserPulseGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#259345" stop-opacity="0.2"/>
+                <stop offset="50%" stop-color="#4ADE80" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#259345" stop-opacity="0.2"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Background Engineering Pipe -->
+            <path d="M 60 40 L 990 40" stroke="#CBD5E1" stroke-width="4" stroke-linecap="round"/>
+            <!-- Pulsing Laser Beam -->
+            <path d="M 60 40 L 990 40" stroke="url(#laserPulseGrad)" stroke-width="5" stroke-linecap="round" class="pipeline-laser-beam"/>
+
+            <!-- Stage 1 Hub -->
+            <circle cx="85" cy="40" r="16" fill="#142250" stroke="#4ADE80" stroke-width="2.5"/>
+            <text x="85" y="44" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">01</text>
+
+            <!-- Stage 2 Hub -->
+            <circle cx="265" cy="40" r="16" fill="#142250" stroke="#4ADE80" stroke-width="2.5"/>
+            <text x="265" y="44" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">02</text>
+
+            <!-- Stage 3 Hub -->
+            <circle cx="445" cy="40" r="16" fill="#142250" stroke="#4ADE80" stroke-width="2.5"/>
+            <text x="445" y="44" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">03</text>
+
+            <!-- Stage 4 Hub -->
+            <circle cx="625" cy="40" r="16" fill="#142250" stroke="#4ADE80" stroke-width="2.5"/>
+            <text x="625" y="44" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">04</text>
+
+            <!-- Stage 5 Hub -->
+            <circle cx="805" cy="40" r="16" fill="#142250" stroke="#4ADE80" stroke-width="2.5"/>
+            <text x="805" y="44" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">05</text>
+
+            <!-- Stage 6 Hub -->
+            <circle cx="975" cy="40" r="16" fill="#142250" stroke="#4ADE80" stroke-width="2.5"/>
+            <text x="975" y="44" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">06</text>
+          </svg>
+
+          <!-- Interactive 6 Stage Pills Grid -->
+          <div class="pipeline-interactive-grid">
+            <div class="pipeline-stage-pill active" data-stage="1">
+              <div class="stage-pill-num">STAGE 01</div>
+              <div class="stage-pill-title">Understand</div>
+              <div class="stage-pill-deliverable">Load audit & structural roof profiling.</div>
+            </div>
+
+            <div class="pipeline-stage-pill" data-stage="2">
+              <div class="stage-pill-num">STAGE 02</div>
+              <div class="stage-pill-title">Assess</div>
+              <div class="stage-pill-deliverable">DISCOM approvals & financial feasibility.</div>
+            </div>
+
+            <div class="pipeline-stage-pill" data-stage="3">
+              <div class="stage-pill-num">STAGE 03</div>
+              <div class="stage-pill-title">Design</div>
+              <div class="stage-pill-deliverable">3D shadow modeling & electrical SLD.</div>
+            </div>
+
+            <div class="pipeline-stage-pill" data-stage="4">
+              <div class="stage-pill-num">STAGE 04</div>
+              <div class="stage-pill-title">Evaluate</div>
+              <div class="stage-pill-deliverable">CAPEX vs OPEX payback modeling.</div>
+            </div>
+
+            <div class="pipeline-stage-pill" data-stage="5">
+              <div class="stage-pill-num">STAGE 05</div>
+              <div class="stage-pill-title">Execute</div>
+              <div class="stage-pill-deliverable">Tier-1 EPC & grid synchronization.</div>
+            </div>
+
+            <div class="pipeline-stage-pill" data-stage="6">
+              <div class="stage-pill-num">STAGE 06</div>
+              <div class="stage-pill-title">Optimise</div>
+              <div class="stage-pill-deliverable">24/7 cloud telemetry & asset O&M.</div>
+            </div>
+          </div>
+
+          <!-- Interactive Stage Dossier HUD Box -->
+          <div class="pipeline-dossier-box" id="pipelineDossier">
+            <div class="dossier-step-tag" id="dossierTag">STAGE 01 // LOAD AUDIT</div>
+            <div class="dossier-content">
+              <h4 id="dossierTitle">LiDAR Shadow Modeling & Load Profiling</h4>
+              <p id="dossierText">Engineering audit of TOD bills, transformer headroom, and roof integrity.</p>
+            </div>
+            <div class="dossier-kpi-badge" id="dossierKpi">Feasibility Dossier</div>
+          </div>
+        </div>
+
+        <!-- Turnkey Engineering Leadership Assurance -->
+        <div class="turnkey-leadership-card reveal-on-scroll delay-100">
+          <div class="leadership-img-col">
+            <img src="./person-near-alternative-energy-plant-483x501.jpg" alt="Madhav Solar Turnkey Project Engineer" class="leadership-engineer-img">
+          </div>
+          <div class="leadership-content-col">
+            <div class="section-eyebrow" style="margin-bottom: 4px;">Single-Point EPC Accountability</div>
+            <h3>Senior Engineers On-Site for Every Megawatt</h3>
+            <p>From initial GEDA registration to CEIG approvals and net-metering synchronization, your project is led by a veteran solar engineer on-site with zero factory production downtime.</p>
+            <div class="leadership-stats-row">
+              <span class="leadership-stat-badge">✓ 100% CEIG & DISCOM Compliance</span>
+              <span class="leadership-stat-badge">✓ 45 Days Average Commissioning</span>
+              <span class="leadership-stat-badge">✓ Zero Downtime Protocol</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- =====================================================================
+       DEDICATED BOARDROOM INTELLIGENCE & FAQS LINK
+       ===================================================================== -->
+  <section class="section" style="padding: 28px 0 14px;">
+    <div class="container text-center">
+      <div style="background: rgba(20, 34, 80, 0.03); border: 1px dashed rgba(20, 34, 80, 0.16); border-radius: var(--radius-md); padding: 22px 24px; max-width: 660px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+        <span class="section-eyebrow" style="margin-bottom: 2px;">Executive Intelligence & Advisory</span>
+        <h3 style="font-size: 17px; font-weight: 800; color: var(--navy); margin: 0;">Have Boardroom Questions or Commercial Inquiries?</h3>
+        <p style="font-size: 13px; color: var(--slate-600); margin: 0; max-width: 520px; line-height: 1.5;">Explore our dedicated Boardroom Alignment guides by corporate role, GEDA regulatory policies, and commercial FAQ library.</p>
+        <a href="./faq.html" class="btn btn-secondary" style="margin-top: 6px; padding: 8px 18px; font-size: 12.5px; display: inline-flex; align-items: center; gap: 6px;">
+          <span>Explore Boardroom Alignment & FAQs</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       SECTION 16: FINAL CONVERSION SECTION
+       ===================================================================== -->
+  <section class="final-cta-section">
+    <div class="container">
+      <div class="final-cta-box reveal-on-scroll">
+        <div class="final-cta-inner">
+          <h2>Before You Buy Solar, Know What It Can Do for Your Business.</h2>
+          <p>Understand the technical feasibility, commercial model and long-term energy opportunity before making an investment decision.</p>
+
+          <div class="final-buttons-row">
+            <a href="#assessment-section" class="btn btn-accent cta-assessment-trigger">
+              Get Your Solar Opportunity Assessment
+            </a>
+            <a href="tel:+919903737437" class="btn btn-secondary">
+              Speak With Madhav Solar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SITE FOOTER
+       ===================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <img src="./image.png" alt="Madhav Solar Energy">
+          <p style="color: var(--slate-600); font-size: 13.5px; margin-bottom: 14px;">
+            Commercial & Industrial Turnkey Solar EPC in India. Turning energy costs into long-term commercial assets.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 12px; color: var(--slate-500);">
+            Head Office: Block 111, Ambawadi Compound, Near Sardar Chowk, Sarthana, Surat – 395006
+          </div>
+        </div>
+
+        <div>
+          <h4 style="color: var(--navy); font-size: 15px; margin-bottom: 14px;">Solution Models</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; color: var(--slate-600);">
+            <li>Industrial Rooftop Solar</li>
+            <li>Commercial Rooftop Solar</li>
+            <li>Ground-Mount & Open Access</li>
+            <li>Group Captive Energy PPA</li>
+            <li>Turnkey O&M Asset Management</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color: var(--navy); font-size: 15px; margin-bottom: 14px;">Direct Corporate Desk</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; color: var(--slate-600);">
+            <li>Phone: +91 99037 37437</li>
+            <li>Email: info@madhavsolarenergy.com</li>
+            <li>DISCOM Liaison: DGVCL / MGVCL / Torrent / GEDA</li>
+            <li>Pan-India Commissioning Support</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div class="footer-copyright-col">
+          <div style="color: var(--slate-700); font-weight: 500;">© 2026 Madhav Solar Energy Limited. All Rights Reserved.</div>
+          <div style="color: var(--slate-500); font-size: 12.5px; margin-top: 4px;">
+            Positioning: Strategic Energy Partner for Indian Industry
+          </div>
+        </div>
+        <!-- ===== Site Credit Badge: Fabulous Media | GoCommercially ===== -->
+        <div class="site-credit" aria-label="Site credits">
+          <a href="https://fabulousmedia.in/" target="_blank" rel="noopener"
+             title="Designed by Fabulous Media">
+            <img src="https://www.google.com/s2/favicons?domain=fabulousmedia.in&sz=64"
+                 alt="Fabulous Media" loading="lazy" />
+          </a>
+          <span class="divider" aria-hidden="true"></span>
+          <a href="https://gocommercially.com/" target="_blank" rel="noopener"
+             title="Powered by GoCommercially">
+            <img src="https://www.google.com/s2/favicons?domain=gocommercially.com&sz=64"
+                 alt="GoCommercially" loading="lazy" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       FACTORY SOLAR OPPORTUNITY ASSESSMENT — INTERACTIVE MODAL OVERLAY
+       (Triggers dynamically on clicking any 'Get Your Solar Opportunity' CTA)
+       ===================================================================== -->
+  <div id="assessmentModal" class="assessment-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="assessment-modal-backdrop" id="modalBackdrop"></div>
+    <div class="assessment-modal-dialog">
+      <button type="button" class="assessment-modal-close" id="modalCloseBtn" aria-label="Close Assessment Modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="qualification-form-card modal-form-body">
+        <div class="form-header">
+          <div class="section-eyebrow" style="margin-bottom: 4px;">Confidential Commercial Modeling</div>
+          <h3 id="modalTitle">Factory Solar Assessment</h3>
+          <p>Share preliminary details so our engineering team can structure your assessment accurately.</p>
+        </div>
+
+        <form id="qualificationForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input type="text" name="name" class="form-input" placeholder="e.g. Rajesh Patel" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Company Name *</label>
+              <input type="text" name="company" class="form-input" placeholder="e.g. Surat Textiles Ltd" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Designation / Role *</label>
+              <input type="text" name="designation" class="form-input" placeholder="e.g. Managing Director / CFO" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Business Email *</label>
+              <input type="email" name="email" class="form-input" placeholder="e.g. name@company.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Mobile Number *</label>
+              <input type="tel" name="phone" class="form-input" placeholder="+91 98765 43210" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Industry Sector *</label>
+              <select name="industry" class="form-select" required>
+                <option value="">Select Industry</option>
+                <option value="Manufacturing">Manufacturing & Engineering</option>
+                <option value="Textiles">Textiles & Processing</option>
+                <option value="Chemicals">Chemicals & Pharmaceuticals</option>
+                <option value="ColdStorage">Cold Storage & Warehousing</option>
+                <option value="Commercial">Commercial Real Estate / Hotels</option>
+                <option value="Other">Other Energy-Intensive Business</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Project Location (City / State) *</label>
+              <input type="text" name="location" class="form-input" placeholder="e.g. Surat, Gujarat" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Approx. Monthly Electricity Bill *</label>
+              <select name="bill" class="form-select" required>
+                <option value="">Select Monthly Bill</option>
+                <option value="1-3 Lakh">₹1 Lakh to ₹3 Lakh</option>
+                <option value="3-5 Lakh">₹3 Lakh to ₹5 Lakh</option>
+                <option value="5-15 Lakh">₹5 Lakh to ₹15 Lakh</option>
+                <option value="15-50 Lakh">₹15 Lakh to ₹50 Lakh</option>
+                <option value="50 Lakh+">₹50 Lakh+ per month</option>
+              </select>
+            </div>
+
+            <div class="form-group col-full">
+              <label class="form-label">Requirement Type</label>
+              <div class="radio-pills-row">
+                <div class="radio-pill-item">
+                  <input type="radio" id="req-rooftop" name="requirement" value="Rooftop" checked>
+                  <label for="req-rooftop">Rooftop Solar</label>
+                </div>
+                <div class="radio-pill-item">
+                  <input type="radio" id="req-ground" name="requirement" value="Ground-Mount">
+                  <label for="req-ground">Ground-Mount</label>
+                </div>
+                <div class="radio-pill-item">
+                  <input type="radio" id="req-captive" name="requirement" value="Captive">
+                  <label for="req-captive">Captive / Group Captive</label>
+                </div>
+                <div class="radio-pill-item">
+                  <input type="radio" id="req-openaccess" name="requirement" value="Open Access">
+                  <label for="req-openaccess">Open Access</label>
+                </div>
+                <div class="radio-pill-item">
+                  <input type="radio" id="req-notsure" name="requirement" value="Not Sure">
+                  <label for="req-notsure">Not Sure</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-full">
+              <label class="form-label">Project Timeline</label>
+              <div class="radio-pills-row">
+                <div class="radio-pill-item">
+                  <input type="radio" id="time-immediate" name="timeline" value="Immediate" checked>
+                  <label for="time-immediate">Immediate</label>
+                </div>
+                <div class="radio-pill-item">
+                  <input type="radio" id="time-3mo" name="timeline" value="Within 3 Months">
+                  <label for="time-3mo">Within 3 Months</label>
+                </div>
+                <div class="radio-pill-item">
+                  <input type="radio" id="time-6mo" name="timeline" value="3–6 Months">
+                  <label for="time-6mo">3–6 Months</label>
+                </div>
+                <div class="radio-pill-item">
+                  <input type="radio" id="time-exploring" name="timeline" value="Currently Exploring">
+                  <label for="time-exploring">Currently Exploring</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-full" style="margin-top: 10px;">
+              <button type="submit" class="btn btn-accent" style="width: 100%; padding: 12px;">
+                Assess My Solar Opportunity
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div id="formFeedback" style="display: none; margin-top: 16px; padding: 14px 18px; background: rgba(37, 147, 69, 0.08); border: 1px solid var(--green); border-radius: var(--radius-sm); color: var(--navy); font-size: 13.5px; font-weight: 600; text-align: center;">
+          ✓ Your requirement has been captured. Our commercial engineering team will prepare your assessment draft and contact you shortly.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./hero-sequence.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
