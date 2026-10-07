@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSLDVisualizer();
   initPipelineStages();
   initIntelHubTabs();
+  initCaseCards();
 });
 
 /* ==========================================================
@@ -542,5 +543,22 @@ function initIntelHubTabs() {
     });
   });
 }
+
+/* ==========================================================
+   12. CASE CARDS INTERACTION (TOUCH & CLICK SUPPORT)
+   ========================================================== */
+function initCaseCards() {
+  const cards = document.querySelectorAll('.proof-case-card');
+  if (!cards.length) return;
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const wasActive = card.classList.contains('active');
+      cards.forEach(c => c.classList.remove('active'));
+      if (!wasActive) card.classList.add('active');
+    });
+  });
+}
+
 
 

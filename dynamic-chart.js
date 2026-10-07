@@ -47,7 +47,7 @@
       h+=`<g id="dPb" opacity="${anim?0:1}"><line x1="${px}" y1="${Y0}" x2="${px}" y2="${Y1}" stroke="#142250" stroke-opacity=".35" stroke-dasharray="4 5"/>
       <circle cx="${px}" cy="${yl}" r="7" fill="#fff" stroke="#142250" stroke-width="3"/>
       <rect x="${Math.min(Math.max(px-68,X0),X1-136)}" y="${Y0-6}" width="136" height="30" rx="15" fill="#142250" stroke="none"/>
-      <text x="${Math.min(Math.max(px,X0+68),X1-68)}" y="${Y0+14}" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="12" font-weight="700" fill="#fff">⚡ ${pb.toFixed(1)}-yr payback</text></g>`;}
+      <text x="${Math.min(Math.max(px,X0+68),X1-68)}" y="${Y0+14}" text-anchor="middle" font-family="Albert Sans, Exo, sans-serif" font-size="12" font-weight="700" fill="#fff">⚡ ${pb.toFixed(1)}-yr payback</text></g>`;}
     h+=`<g id="dScrub"></g><rect id="dHit" x="${X0}" y="${Y0-10}" width="${X1-X0}" height="${Y1-Y0+20}" fill="transparent"/>`;
     svg.innerHTML=h;svg._m={g,L,ys,gmax};
     scrub(yr);

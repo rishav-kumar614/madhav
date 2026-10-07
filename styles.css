@@ -22,7 +22,8 @@
   --slate-100: #F1F5F9;
   --slate-50: #F8FAFC;
   --white: #FFFFFF;
-  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-main: 'Albert Sans', 'Exo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Exo', 'Albert Sans', sans-serif;
   --font-mono: 'JetBrains Mono', 'Space Grotesk', monospace;
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -42,7 +43,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 18px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -84,7 +85,14 @@ body {
 }
 
 /* Typography Base */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,
+.section-title,
+.hero-title,
+.brand-name,
+.section-eyebrow,
+.kpi-num,
+.stat-value {
+  font-family: var(--font-heading);
   color: var(--navy);
   font-weight: 800;
   line-height: 1.18;
@@ -97,7 +105,8 @@ p {
   line-height: 1.68;
 }
 
-a {
+a, button, input, select, textarea {
+  font-family: inherit;
   color: inherit;
   text-decoration: none;
 }
@@ -307,7 +316,7 @@ a {
 
 .nav-link {
   display: block;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--slate-600);
   padding: 7px 14px;
@@ -333,7 +342,7 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--navy);
   font-family: var(--font-mono);
@@ -356,7 +365,7 @@ a {
 
 .nav-cta-btn {
   white-space: nowrap;
-  font-size: 13px;
+  font-size: 15px;
   padding: 9px 20px;
 }
 
@@ -366,7 +375,7 @@ a {
     padding: 3px;
   }
   .nav-link {
-    font-size: 12px;
+    font-size: 14px;
     padding: 6px 10px;
   }
   .nav-container {
@@ -389,7 +398,7 @@ a {
   gap: 10px;
   padding: 13px 26px;
   border-radius: var(--radius-sm);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2090,71 +2099,140 @@ a {
   gap: 14px;
 }
 
+/* ============================================================
+   ARCH CARDS — Image-squeeze design (same pattern as case cards)
+   • Rest:  Image fills card + thin bottom strip (tag + title)
+   • Hover: Image squeezes to top half, detail panel slides up
+   ============================================================ */
+
 .arch-card {
+  position: relative;
   background: var(--white);
   border: 1px solid var(--slate-200);
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
+  height: 220px;
   display: flex;
   flex-direction: column;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+  cursor: pointer;
 }
 
 .arch-card:hover {
-  border-color: var(--navy);
-  box-shadow: 0 8px 22px rgba(20, 34, 80, 0.08);
-  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(20, 34, 80, 0.12);
+  transform: translateY(-3px);
 }
 
+/* ---- IMAGE WRAP ---- */
 .arch-img-wrap {
-  width: 100%;
-  height: 105px;
+  flex: 1 1 auto;
+  min-height: 0;
+  position: relative;
   overflow: hidden;
   background: var(--slate-900);
+  transition: flex 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arch-card:hover .arch-img-wrap {
+  flex: 0 0 50%;
 }
 
 .arch-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 30%;
   display: block;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .arch-card:hover .arch-card-img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
-.arch-card-body {
-  padding: 12px 14px;
+/* ---- ALWAYS-VISIBLE BOTTOM STRIP ---- */
+.arch-strip {
+  flex: 0 0 auto;
+  padding: 9px 13px 10px;
+  background: var(--white);
+  border-top: 1px solid var(--slate-100);
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  gap: 2px;
+  transition: opacity 0.25s ease;
+}
+
+.arch-card:hover .arch-strip {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.arch-strip-tag {
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 700;
+  color: var(--slate-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.arch-strip-title {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* ---- DETAIL PANEL (slides up from bottom on hover) ---- */
+.arch-detail-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  background: var(--white);
+  border-top: 1px solid var(--slate-100);
+  padding: 10px 13px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transform: translateY(100%);
+  transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.arch-card:hover .arch-detail-panel {
+  transform: translateY(0);
 }
 
 .arch-tag {
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: 8px;
   font-weight: 700;
   color: var(--slate-400);
-  margin-bottom: 4px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .arch-card h3 {
-  font-size: 14.5px;
+  font-size: 13.5px;
   font-weight: 800;
   color: var(--navy);
-  margin-bottom: 4px;
+  margin: 0;
+  line-height: 1.2;
 }
 
 .arch-card p {
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--slate-600);
-  line-height: 1.45;
+  line-height: 1.4;
+  margin: 0;
 }
+
+
 
 /* ==========================================================
    SECTION 7: THE CFO SECTION (FINANCIAL ENGINE)
@@ -2361,78 +2439,161 @@ a {
 /* ==========================================================
    SECTION 8: PROJECT PROOF (OUTCOME CARDS)
    ========================================================== */
+/* ==========================================================
+   SECTION 8: PROJECT PROOF (OUTCOME CARDS WITH 50/50 SPLIT & HOVER SLIDE)
+   ========================================================== */
 .proof-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  max-width: 660px;
+  gap: 16px;
+  max-width: 780px;
   margin: 0 auto;
 }
 
+/* ============================================================
+   CASE CARDS — Image-squeeze design
+   • Rest:  Full card = image + thin bottom strip (title + KPI)
+   • Hover: Image squeezes to top half, detail panel fills bottom
+   ============================================================ */
+
 .proof-case-card {
+  position: relative;
   background: var(--white);
   border: 1px solid var(--slate-200);
-  border-radius: 8px;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  height: 280px;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.07);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
 }
 
 .proof-case-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(20, 34, 80, 0.08);
+  box-shadow: 0 12px 36px rgba(20, 34, 80, 0.14);
+  transform: translateY(-3px);
 }
 
+/* ---- IMAGE WRAP ---- */
 .case-img-wrap {
+  flex: 1 1 auto;          /* grows to fill remaining space */
+  min-height: 0;
   position: relative;
-  width: 100%;
-  height: 95px;
   overflow: hidden;
-  background: var(--slate-900);
+  transition: flex 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.proof-case-card:hover .case-img-wrap {
+  flex: 0 0 50%;           /* squeeze to exactly half on hover */
 }
 
 .case-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 25%;
   display: block;
-  transition: transform 0.4s ease;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .proof-case-card:hover .case-card-img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .case-img-badge {
   position: absolute;
-  bottom: 6px;
-  left: 8px;
+  top: 10px;
+  left: 10px;
   background: rgba(20, 34, 80, 0.88);
   backdrop-filter: blur(6px);
   color: #fff;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 8.5px;
   font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.18);
+  z-index: 2;
+  letter-spacing: 0.03em;
 }
 
-.case-card-header {
-  padding: 8px 10px;
-  background: var(--slate-50);
-  border-bottom: 1px solid var(--slate-200);
+/* ---- ALWAYS-VISIBLE BOTTOM STRIP ---- */
+.case-strip {
+  flex: 0 0 auto;
+  padding: 10px 14px 11px;
+  background: var(--white);
+  border-top: 1px solid var(--slate-100);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  transition: opacity 0.3s ease;
+}
+
+.proof-case-card:hover .case-strip {
+  opacity: 0;              /* strip fades out as detail panel takes over */
+  pointer-events: none;
+}
+
+.case-strip-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.case-strip-kpi {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.01em;
+}
+
+/* ---- DETAIL PANEL (slides up from bottom on hover) ---- */
+.case-detail-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  background: var(--white);
+  border-top: 1px solid var(--slate-100);
+  padding: 11px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  transform: translateY(100%);
+  transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.proof-case-card:hover .case-detail-panel,
+.proof-case-card.active .case-detail-panel {
+  transform: translateY(0);
+}
+
+.case-detail-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 2px;
 }
 
+.case-detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+/* shared existing classes, kept for reuse */
 .case-industry {
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 800;
   color: var(--navy);
+  letter-spacing: -0.01em;
 }
 
 .case-capacity-pill {
@@ -2446,25 +2607,17 @@ a {
   color: var(--green);
 }
 
-.case-body {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  flex-grow: 1;
-}
-
 .case-field-label {
   font-family: var(--font-mono);
   font-size: 8px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--slate-400);
-  margin-bottom: 1px;
+  letter-spacing: 0.04em;
 }
 
 .case-field-val {
-  font-size: 10.5px;
+  font-size: 10px;
   color: var(--slate-700);
   line-height: 1.35;
 }
@@ -2472,13 +2625,17 @@ a {
 .case-outcome-highlight {
   background: var(--green-soft);
   border-left: 2.5px solid var(--green);
-  padding: 6px 8px;
+  padding: 5px 8px;
   border-radius: 0 4px 4px 0;
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 700;
   color: var(--navy);
-  line-height: 1.35;
+  line-height: 1.3;
+  margin-top: auto;
 }
+
+
+
 
 /* ==========================================================
    SECTION 9: THE DECISION FRAMEWORK
@@ -2930,6 +3087,28 @@ a {
   display: block;
 }
 
+/* Boardroom Intelligence & FAQs Link Banner */
+.faq-teaser-card {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px dashed rgba(20, 34, 80, 0.18);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  max-width: 660px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-teaser-card:hover {
+  background: #FFFFFF;
+  border-color: rgba(20, 34, 80, 0.28);
+  box-shadow: 0 8px 24px rgba(20, 34, 80, 0.08);
+}
+
 /* ==========================================================
    SECTION 16: FINAL CONVERSION BANNER
    ========================================================== */
@@ -2947,9 +3126,16 @@ a {
   margin: 0 auto;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: none;
-  border: 1px solid rgba(20, 34, 80, 0.08);
-  background: transparent;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.03);
+  border: 1px solid rgba(20, 34, 80, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.final-cta-box:hover {
+  background: #FFFFFF;
+  border-color: rgba(20, 34, 80, 0.22);
+  box-shadow: 0 10px 28px rgba(20, 34, 80, 0.07);
 }
 
 .final-cta-backdrop-wrap {
@@ -3649,6 +3835,26 @@ body.loaded .hero-proof-dock {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
+}
+
+/* Section header card — frosted white look floating over background sketch */
+.sketch-header-card {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(20, 34, 80, 0.08);
+  border-radius: 14px;
+  padding: 24px 30px 22px;
+  max-width: 720px;
+  margin: 0 auto 28px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(20, 34, 80, 0.04);
+}
+
+.sketch-header-card .section-header,
+.sketch-header-card .merged-block-title-wrap {
+  margin: 0;
+  max-width: 100%;
 }
 
 .pipeline-stage-pill {

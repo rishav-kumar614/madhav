@@ -37,12 +37,12 @@
       const fill=v<0?'url(#wfR)':t===1?'#4ADE80':'url(#wfG)';
       h+=`<g class="wf-bar" data-i="${i}"><rect x="${cx-bw/2}" y="${v<0?y0:top}" width="${bw}" height="${hh}" rx="5" fill="${fill}" style="transform-origin:${cx}px ${y0}px;${anim?`animation:wfGrow .9s ${i*.12}s both cubic-bezier(.16,1,.3,1)`:''}"/>
         <text x="${cx}" y="${v<0?y0+hh+16:top-8}" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" font-weight="700" fill="${v<0?'#EF4444':'#142250'}" style="${anim?`opacity:0;animation:dynFade .5s ${i*.12+.6}s forwards`:''}">${fmt(v)}</text></g>
-        <text x="${cx}" y="${Y1+22}" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="12" font-weight="${t===3||t===25?700:500}" fill="${t===25?'#259345':'#64748B'}">Year ${t}</text>`;
+        <text x="${cx}" y="${Y1+22}" text-anchor="middle" font-family="Albert Sans, Exo, sans-serif" font-size="12" font-weight="${t===3||t===25?700:500}" fill="${t===25?'#259345':'#64748B'}">Year ${t}</text>`;
     });
     // payback marker
     const pi=Math.min(Math.max(m.pay,0),25),pos=(()=>{let i=0;while(i<YEARS.length-1&&YEARS[i+1]<pi)i++;const f=(pi-YEARS[i])/(YEARS[i+1]-YEARS[i]);return X0+slot*(i+.5+f)})();
     h+=`<line x1="${pos}" y1="${Y0-10}" x2="${pos}" y2="${Y1}" stroke="#142250" stroke-dasharray="4 4"/><circle cx="${pos}" cy="${y0}" r="6" fill="#142250" stroke="#fff" stroke-width="2"/>
-      <rect x="${pos-62}" y="${Y0-30}" width="124" height="26" rx="13" fill="#142250"/><text x="${pos}" y="${Y0-13}" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11.5" font-weight="700" fill="#fff">⚡ ${m.pay.toFixed(1)}-yr payback</text>`;
+      <rect x="${pos-62}" y="${Y0-30}" width="124" height="26" rx="13" fill="#142250"/><text x="${pos}" y="${Y0-13}" text-anchor="middle" font-family="Albert Sans, Exo, sans-serif" font-size="11.5" font-weight="700" fill="#fff">⚡ ${m.pay.toFixed(1)}-yr payback</text>`;
     svg.innerHTML=h;svg._m={m,vals,slot};
     $('wfPay').textContent=m.pay.toFixed(1)+' Years';
     $('wfFree').textContent=fmt(m.free).replace(/^\+?/,'+');
