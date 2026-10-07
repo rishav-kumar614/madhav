@@ -1140,58 +1140,88 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top-grid">
+        <!-- Column 1: Brand & Social -->
         <div class="footer-brand-col">
           <img src="./image.png" alt="Madhav Solar Energy">
-          <p style="color: var(--slate-600); font-size: 15.5px; margin-bottom: 14px;" data-i18n="footer.tagline">
-            Commercial & Industrial Turnkey Solar EPC in India. Turning energy costs into long-term commercial assets.
+          <p class="footer-brand-desc" data-i18n="footer.tagline">
+            Centric applications productize before front end vortals visualize front end is results and value added
           </p>
-          <div style="font-family: var(--font-mono); font-size: 14px; color: var(--slate-500);" data-i18n="footer.address">
-            Head Office: Block 111, Ambawadi Compound, Near Sardar Chowk, Sarthana, Surat – 395006
+          <div class="footer-pan-india" data-i18n="footer.pan_india">
+            Pan India Service Available
+          </div>
+          <div class="footer-social-row">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
           </div>
         </div>
 
-        <div>
-          <h4 style="color: var(--navy); font-size: 17px; margin-bottom: 14px;" data-i18n="footer.models_title">Solution Models</h4>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; color: var(--slate-600);">
-            <li data-i18n="footer.m1">Industrial Rooftop Solar</li>
-            <li data-i18n="footer.m2">Commercial Rooftop Solar</li>
-            <li data-i18n="footer.m3">Ground-Mount & Open Access</li>
-            <li data-i18n="footer.m4">Group Captive Energy PPA</li>
-            <li data-i18n="footer.m5">Turnkey O&M Asset Management</li>
+        <!-- Column 2: Solutions -->
+        <div class="footer-links-col">
+          <h4 class="footer-col-title" data-i18n="footer.col_solutions">Solutions</h4>
+          <div class="footer-title-accent"></div>
+          <ul class="footer-links-list">
+            <li><a href="./index.html#solutions" data-i18n="footer.m1">Industrial Rooftop Solar</a></li>
+            <li><a href="./index.html#solutions" data-i18n="footer.m2">Commercial Rooftop Solar</a></li>
+            <li><a href="./index.html#solutions" data-i18n="footer.m3">Ground-Mount & Open Access Solar</a></li>
+            <li><a href="./index.html#process" data-i18n="footer.m5">O&M / Asset Management</a></li>
           </ul>
         </div>
 
-        <div>
-          <h4 style="color: var(--navy); font-size: 17px; margin-bottom: 14px;" data-i18n="footer.desk_title">Direct Corporate Desk</h4>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; color: var(--slate-600);">
-            <li data-i18n="footer.d1">Phone: +91 99037 37437</li>
-            <li data-i18n="footer.d2">Email: info@madhavsolarenergy.com</li>
-            <li data-i18n="footer.d3">DISCOM Liaison: DGVCL / MGVCL / Torrent / GEDA</li>
-            <li data-i18n="footer.d4">Pan-India Commissioning Support</li>
+        <!-- Column 3: Company Links -->
+        <div class="footer-links-col">
+          <h4 class="footer-col-title" data-i18n="footer.col_company">Company Links</h4>
+          <div class="footer-title-accent"></div>
+          <ul class="footer-links-list">
+            <li><a href="./index.html#hero" data-i18n="footer.link_home">Home</a></li>
+            <li><a href="./index.html#problem" data-i18n="footer.link_about">About</a></li>
+            <li><a href="#assessment-section" class="cta-assessment-trigger" data-i18n="footer.link_career">Career</a></li>
+            <li><a href="./faq.html" data-i18n="footer.link_blogs">Blogs</a></li>
+            <li><a href="#assessment-section" class="cta-assessment-trigger" data-i18n="footer.link_contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Policies -->
+        <div class="footer-links-col">
+          <h4 class="footer-col-title" data-i18n="footer.col_policies">Policies</h4>
+          <div class="footer-title-accent"></div>
+          <ul class="footer-links-list">
+            <li><a href="#" data-i18n="footer.link_privacy">Privacy Policy</a></li>
+            <li><a href="#" data-i18n="footer.link_terms">Terms Of Use</a></li>
+            <li><a href="#" data-i18n="footer.link_cookies">Cookie Notice</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom-bar">
-        <div class="footer-copyright-col">
-          <div style="color: var(--slate-700); font-weight: 500;" data-i18n="footer.copyright">© 2026 Madhav Solar Energy Limited. All Rights Reserved.</div>
-          <div style="color: var(--slate-500); font-size: 14.5px; margin-top: 4px;" data-i18n="footer.positioning">
-            Positioning: Strategic Energy Partner for Indian Industry
-          </div>
+        <div class="footer-copyright" data-i18n="footer.copyright">
+          Copyright 2026. All Rights Reserved.
         </div>
-        <!-- ===== Site Credit Badge: Fabulous Media | GoCommercially ===== -->
-        <div class="site-credit" aria-label="Site credits">
-          <a href="https://fabulousmedia.in/" target="_blank" rel="noopener"
-             title="Designed by Fabulous Media">
-            <img src="https://www.google.com/s2/favicons?domain=fabulousmedia.in&sz=64"
-                 alt="Fabulous Media" loading="lazy" />
-          </a>
-          <span class="divider" aria-hidden="true"></span>
-          <a href="https://gocommercially.com/" target="_blank" rel="noopener"
-             title="Powered by GoCommercially">
-            <img src="https://www.google.com/s2/favicons?domain=gocommercially.com&sz=64"
-                 alt="GoCommercially" loading="lazy" />
-          </a>
+        <div class="footer-bottom-right">
+          <div class="footer-dev-credit" data-i18n="footer.dev_by">Developed by Tangerine ORM</div>
+          <!-- ===== Site Credit Badge: Fabulous Media | GoCommercially ===== -->
+          <div class="site-credit" aria-label="Site credits">
+            <a href="https://fabulousmedia.in/" target="_blank" rel="noopener"
+               title="Designed by Fabulous Media">
+              <img src="https://www.google.com/s2/favicons?domain=fabulousmedia.in&sz=64"
+                   alt="Fabulous Media" width="16" height="16" style="width: 16px; height: 16px; object-fit: contain; display: block;" loading="lazy" />
+            </a>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="https://gocommercially.com/" target="_blank" rel="noopener"
+               title="Powered by GoCommercially">
+              <img src="https://www.google.com/s2/favicons?domain=gocommercially.com&sz=64"
+                   alt="GoCommercially" width="16" height="16" style="width: 16px; height: 16px; object-fit: contain; display: block;" loading="lazy" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
