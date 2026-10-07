@@ -43,7 +43,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 18px;
+  font-size: 20px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -239,7 +239,7 @@ a, button, input, select, textarea {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--slate-500);
   font-family: var(--font-mono);
@@ -316,7 +316,7 @@ a, button, input, select, textarea {
 
 .nav-link {
   display: block;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--slate-600);
   padding: 7px 14px;
@@ -342,7 +342,7 @@ a, button, input, select, textarea {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--navy);
   font-family: var(--font-mono);
@@ -365,7 +365,7 @@ a, button, input, select, textarea {
 
 .nav-cta-btn {
   white-space: nowrap;
-  font-size: 15px;
+  font-size: 17px;
   padding: 9px 20px;
 }
 
@@ -375,7 +375,7 @@ a, button, input, select, textarea {
     padding: 3px;
   }
   .nav-link {
-    font-size: 14px;
+    font-size: 16px;
     padding: 6px 10px;
   }
   .nav-container {
@@ -398,7 +398,7 @@ a, button, input, select, textarea {
   gap: 10px;
   padding: 13px 26px;
   border-radius: var(--radius-sm);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
@@ -445,7 +445,7 @@ a, button, input, select, textarea {
 
 .btn-sm {
   padding: 9px 18px;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 /* ==========================================================
@@ -486,7 +486,7 @@ a, button, input, select, textarea {
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 12.5px;
   font-weight: 700;
   color: var(--green);
   text-transform: uppercase;
@@ -512,7 +512,7 @@ a, button, input, select, textarea {
 }
 
 .section-lead {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--slate-600);
   max-width: 520px;
   margin: 0 auto;
@@ -577,7 +577,7 @@ a, button, input, select, textarea {
 
 .hero-badge-tag {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
   color: #166534;
   letter-spacing: 0.06em;
@@ -585,12 +585,12 @@ a, button, input, select, textarea {
 
 .hero-badge-sep {
   color: rgba(37, 147, 69, 0.4);
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .hero-badge-meta {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--navy);
   letter-spacing: 0.04em;
@@ -654,7 +654,7 @@ a, button, input, select, textarea {
   background: linear-gradient(135deg, #259345 0%, #1e7b39 100%);
   color: #ffffff;
   padding: 14px 28px;
-  font-size: 14.5px;
+  font-size: 16.5px;
   font-weight: 700;
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(37, 147, 69, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -686,7 +686,7 @@ a, button, input, select, textarea {
   color: var(--navy);
   border: 1.5px solid var(--slate-300);
   padding: 13px 24px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
@@ -720,7 +720,7 @@ a, button, input, select, textarea {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  font-size: 12.5px;
+  font-size: 14.5px;
   font-weight: 600;
   color: var(--slate-600);
   white-space: nowrap;
@@ -764,7 +764,7 @@ a, button, input, select, textarea {
   background: rgba(10, 19, 48, 0.96);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .hud-left {
@@ -789,7 +789,7 @@ a, button, input, select, textarea {
   color: #4ADE80;
   font-weight: 700;
   letter-spacing: 0.04em;
-  font-size: 9.5px;
+  font-size: 11.5px;
 }
 
 /* Half-Sized Compact Image Stage */
@@ -842,14 +842,14 @@ a, button, input, select, textarea {
 
 .hud-metric-pill .metric-lbl {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 700;
   color: #94A3B8;
   letter-spacing: 0.06em;
 }
 
 .hud-metric-pill .metric-val {
-  font-size: 11.5px;
+  font-size: 13.5px;
   font-weight: 800;
   color: #FFFFFF;
 }
@@ -923,7 +923,7 @@ a, button, input, select, textarea {
 }
 
 .badge-stat {
-  font-size: 13.5px;
+  font-size: 15.5px;
   font-weight: 850;
   color: var(--navy);
   line-height: 1.15;
@@ -931,7 +931,7 @@ a, button, input, select, textarea {
 }
 
 .badge-sub {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--slate-600);
   line-height: 1.15;
@@ -939,7 +939,7 @@ a, button, input, select, textarea {
 
 .badge-chip {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 800;
   background: rgba(37, 147, 69, 0.12);
   color: #166534;
@@ -985,7 +985,7 @@ a, button, input, select, textarea {
 
 .proof-dock-num {
   font-family: var(--font-mono);
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 850;
   color: var(--navy);
   line-height: 1.1;
@@ -998,7 +998,7 @@ a, button, input, select, textarea {
 }
 
 .proof-dock-lbl {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--slate-500);
   line-height: 1.25;
@@ -1042,7 +1042,7 @@ a, button, input, select, textarea {
 }
 
 #problem .section-eyebrow {
-  font-size: 10.5px;
+  font-size: 12.5px;
   letter-spacing: 0.1em;
   margin-bottom: 6px;
 }
@@ -1056,7 +1056,7 @@ a, button, input, select, textarea {
 }
 
 #problem .section-lead {
-  font-size: 12.5px !important;
+  font-size: 14.5px !important;
   max-width: 480px;
   margin: 0 auto;
   line-height: 1.45;
@@ -1128,7 +1128,7 @@ a, button, input, select, textarea {
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
   color: var(--navy);
   z-index: 3;
@@ -1164,7 +1164,7 @@ a, button, input, select, textarea {
 .factor-tag {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--green);
   letter-spacing: 0.05em;
@@ -1175,7 +1175,7 @@ a, button, input, select, textarea {
 }
 
 .branch-card h4 {
-  font-size: 12.5px;
+  font-size: 14.5px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 2px;
@@ -1183,7 +1183,7 @@ a, button, input, select, textarea {
 }
 
 .branch-card p {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--slate-600);
   line-height: 1.35;
   margin: 0;
@@ -1230,7 +1230,7 @@ a, button, input, select, textarea {
 
 .pivot-label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1246,7 +1246,7 @@ a, button, input, select, textarea {
 }
 
 .pivot-quote {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1.35;
   color: var(--white);
@@ -1307,7 +1307,7 @@ a, button, input, select, textarea {
 
 .hub-node-label {
   font-family: var(--font-mono);
-  font-size: 7.5px;
+  font-size: 9.5px;
   font-weight: 800;
   color: var(--navy);
   letter-spacing: 0.08em;
@@ -1404,7 +1404,7 @@ a, button, input, select, textarea {
 
 .quadrant-tag {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--navy);
   background: var(--slate-100);
@@ -1414,7 +1414,7 @@ a, button, input, select, textarea {
 }
 
 .quadrant-card h4 {
-  font-size: 13.5px;
+  font-size: 15.5px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 3px;
@@ -1422,7 +1422,7 @@ a, button, input, select, textarea {
 }
 
 .quadrant-card p {
-  font-size: 11.5px;
+  font-size: 13.5px;
   color: var(--slate-600);
   line-height: 1.45;
   margin: 0;
@@ -1483,13 +1483,13 @@ a, button, input, select, textarea {
 
 .diagram-title-group h3 {
   color: var(--white);
-  font-size: 20px;
+  font-size: 22px;
   margin-bottom: 4px;
 }
 
 .diagram-title-group p {
   color: var(--slate-400);
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .diagram-telemetry-pill {
@@ -1501,7 +1501,7 @@ a, button, input, select, textarea {
   background: rgba(37, 147, 69, 0.15);
   border: 1px solid rgba(52, 211, 153, 0.3);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   color: #4ADE80;
 }
@@ -1580,13 +1580,13 @@ a, button, input, select, textarea {
 }
 
 .cfo-chart-header h3 {
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .cfo-legend-row {
   display: flex;
   gap: 20px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   font-family: var(--font-mono);
 }
@@ -1619,7 +1619,7 @@ a, button, input, select, textarea {
 .arch-btn {
   padding: 6px 14px;
   border-radius: var(--radius-full);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   font-family: var(--font-mono);
   background: transparent;
@@ -1731,7 +1731,7 @@ a, button, input, select, textarea {
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
   color: var(--navy);
   z-index: 3;
@@ -1785,14 +1785,14 @@ a, button, input, select, textarea {
 
 .benchmark-tag {
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: 10.5px;
   font-weight: 700;
   color: var(--navy);
   letter-spacing: 0.04em;
 }
 
 .benchmark-card h4 {
-  font-size: 12.5px;
+  font-size: 14.5px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 2px;
@@ -1800,7 +1800,7 @@ a, button, input, select, textarea {
 }
 
 .benchmark-card p {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--slate-600);
   line-height: 1.35;
   margin: 0;
@@ -1819,7 +1819,7 @@ a, button, input, select, textarea {
 }
 
 .benchmark-callout-text {
-  font-size: 12.5px;
+  font-size: 14.5px;
   font-weight: 600;
   color: var(--navy);
   line-height: 1.45;
@@ -1880,7 +1880,7 @@ a, button, input, select, textarea {
   border: 1px solid rgba(52, 211, 153, 0.5);
   color: #4ADE80;
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: 11.5px;
   font-weight: 700;
   padding: 2px 7px;
   border-radius: 4px;
@@ -1889,7 +1889,7 @@ a, button, input, select, textarea {
 }
 
 .exec-photo-overlay h4 {
-  font-size: 14.5px;
+  font-size: 16.5px;
   font-weight: 700;
   color: var(--white);
   margin-bottom: 3px;
@@ -1898,7 +1898,7 @@ a, button, input, select, textarea {
 
 .exec-photo-overlay p {
   color: var(--slate-200);
-  font-size: 11.5px;
+  font-size: 13.5px;
   max-width: 520px;
   line-height: 1.4;
   margin: 0;
@@ -1923,7 +1923,7 @@ a, button, input, select, textarea {
   background: var(--white);
   border: 1px solid var(--slate-200);
   border-radius: var(--radius-full);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--slate-600);
   cursor: pointer;
@@ -1969,14 +1969,14 @@ a, button, input, select, textarea {
 }
 
 .sector-heading {
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 800;
   color: var(--navy);
   margin-bottom: 6px;
 }
 
 .sector-challenge {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--slate-600);
   margin-bottom: 12px;
   line-height: 1.45;
@@ -1992,7 +1992,7 @@ a, button, input, select, textarea {
 
 .sector-angle-label {
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: 10.5px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--green);
@@ -2000,7 +2000,7 @@ a, button, input, select, textarea {
 }
 
 .sector-angle-text {
-  font-size: 12.5px;
+  font-size: 14.5px;
   font-weight: 700;
   color: var(--navy);
   line-height: 1.35;
@@ -2016,7 +2016,7 @@ a, button, input, select, textarea {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 11.5px;
+  font-size: 13.5px;
   color: var(--slate-700);
   line-height: 1.4;
 }
@@ -2074,7 +2074,7 @@ a, button, input, select, textarea {
   background: #259345;
   color: #fff;
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: 11.5px;
   font-weight: 700;
   padding: 2px 7px;
   border-radius: 4px;
@@ -2084,7 +2084,7 @@ a, button, input, select, textarea {
 
 .sector-badge-caption {
   color: #fff;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   text-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
@@ -2170,7 +2170,7 @@ a, button, input, select, textarea {
 
 .arch-strip-tag {
   font-family: var(--font-mono);
-  font-size: 7.5px;
+  font-size: 9.5px;
   font-weight: 700;
   color: var(--slate-400);
   text-transform: uppercase;
@@ -2178,7 +2178,7 @@ a, button, input, select, textarea {
 }
 
 .arch-strip-title {
-  font-size: 12.5px;
+  font-size: 14.5px;
   font-weight: 800;
   color: var(--navy);
   letter-spacing: -0.01em;
@@ -2210,7 +2210,7 @@ a, button, input, select, textarea {
 
 .arch-tag {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 700;
   color: var(--slate-400);
   text-transform: uppercase;
@@ -2218,7 +2218,7 @@ a, button, input, select, textarea {
 }
 
 .arch-card h3 {
-  font-size: 13.5px;
+  font-size: 15.5px;
   font-weight: 800;
   color: var(--navy);
   margin: 0;
@@ -2226,7 +2226,7 @@ a, button, input, select, textarea {
 }
 
 .arch-card p {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--slate-600);
   line-height: 1.4;
   margin: 0;
@@ -2268,7 +2268,7 @@ a, button, input, select, textarea {
 
 .cfo-box-header h2 {
   color: var(--white);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
   margin-bottom: 6px;
   line-height: 1.25;
@@ -2276,7 +2276,7 @@ a, button, input, select, textarea {
 
 .cfo-box-header p {
   color: var(--slate-300);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.45;
 }
 
@@ -2296,7 +2296,7 @@ a, button, input, select, textarea {
 
 .cfo-q-card .q-label {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 10px;
   color: #4ADE80;
   text-transform: uppercase;
   margin-bottom: 2px;
@@ -2305,7 +2305,7 @@ a, button, input, select, textarea {
 
 .cfo-q-card .q-title {
   color: var(--white);
-  font-size: 11.5px;
+  font-size: 13.5px;
   font-weight: 700;
   line-height: 1.35;
 }
@@ -2322,7 +2322,7 @@ a, button, input, select, textarea {
 }
 
 .cfo-statement-text {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--white);
   line-height: 1.35;
@@ -2347,14 +2347,14 @@ a, button, input, select, textarea {
 }
 
 .calc-input-block h3 {
-  font-size: 15.5px;
+  font-size: 17.5px;
   font-weight: 800;
   color: var(--navy);
   margin-bottom: 4px;
 }
 
 .calc-input-block p {
-  font-size: 11.5px;
+  font-size: 13.5px;
   color: var(--slate-600);
   line-height: 1.4;
   margin-bottom: 8px;
@@ -2369,13 +2369,13 @@ a, button, input, select, textarea {
   justify-content: space-between;
   align-items: baseline;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--slate-700);
   margin-bottom: 8px;
 }
 
 .calc-slider-val {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
   color: var(--navy);
   font-family: var(--font-mono);
@@ -2416,7 +2416,7 @@ a, button, input, select, textarea {
 }
 
 .calc-out-label {
-  font-size: 9.5px;
+  font-size: 11.5px;
   font-weight: 600;
   color: var(--slate-500);
   text-transform: uppercase;
@@ -2426,7 +2426,7 @@ a, button, input, select, textarea {
 }
 
 .calc-out-val {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 800;
   color: var(--navy);
   font-family: var(--font-mono);
@@ -2509,7 +2509,7 @@ a, button, input, select, textarea {
   backdrop-filter: blur(6px);
   color: #fff;
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: 10.5px;
   font-weight: 700;
   padding: 3px 8px;
   border-radius: 6px;
@@ -2536,7 +2536,7 @@ a, button, input, select, textarea {
 }
 
 .case-strip-title {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   color: var(--navy);
   letter-spacing: -0.01em;
@@ -2545,7 +2545,7 @@ a, button, input, select, textarea {
 
 .case-strip-kpi {
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: 11.5px;
   font-weight: 700;
   color: var(--green);
   letter-spacing: 0.01em;
@@ -2590,7 +2590,7 @@ a, button, input, select, textarea {
 
 /* shared existing classes, kept for reuse */
 .case-industry {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   color: var(--navy);
   letter-spacing: -0.01em;
@@ -2598,7 +2598,7 @@ a, button, input, select, textarea {
 
 .case-capacity-pill {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   padding: 2px 6px;
   background: var(--white);
@@ -2609,7 +2609,7 @@ a, button, input, select, textarea {
 
 .case-field-label {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--slate-400);
@@ -2617,7 +2617,7 @@ a, button, input, select, textarea {
 }
 
 .case-field-val {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--slate-700);
   line-height: 1.35;
 }
@@ -2627,7 +2627,7 @@ a, button, input, select, textarea {
   border-left: 2.5px solid var(--green);
   padding: 5px 8px;
   border-radius: 0 4px 4px 0;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--navy);
   line-height: 1.3;
@@ -2665,7 +2665,7 @@ a, button, input, select, textarea {
 .decision-row-header {
   background: var(--slate-100);
   font-weight: 800;
-  font-size: 10.5px;
+  font-size: 12.5px;
   font-family: var(--font-mono);
   color: var(--slate-500);
   text-transform: uppercase;
@@ -2674,12 +2674,12 @@ a, button, input, select, textarea {
 
 .decision-aspect {
   font-weight: 800;
-  font-size: 12.5px;
+  font-size: 14.5px;
   color: var(--navy);
 }
 
 .decision-col-1, .decision-col-2 {
-  font-size: 11.5px;
+  font-size: 13.5px;
   color: var(--slate-700);
   padding: 0 10px;
 }
@@ -2714,21 +2714,21 @@ a, button, input, select, textarea {
 
 .step-num {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   color: var(--green);
   margin-bottom: 3px;
 }
 
 .step-title {
-  font-size: 12.5px;
+  font-size: 14.5px;
   font-weight: 800;
   color: var(--navy);
   margin-bottom: 3px;
 }
 
 .step-desc {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--slate-500);
   line-height: 1.38;
 }
@@ -2755,7 +2755,7 @@ a, button, input, select, textarea {
 
 .offer-manifesto-card h2 {
   color: var(--white);
-  font-size: 17.5px;
+  font-size: 19.5px;
   font-weight: 800;
   margin-bottom: 8px;
   line-height: 1.25;
@@ -2763,7 +2763,7 @@ a, button, input, select, textarea {
 
 .offer-manifesto-card p {
   color: var(--slate-300);
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 14px;
   line-height: 1.45;
 }
@@ -2779,7 +2779,7 @@ a, button, input, select, textarea {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--slate-100);
 }
@@ -2887,14 +2887,14 @@ a, button, input, select, textarea {
 }
 
 .form-header h3 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 800;
   color: var(--navy);
   margin-bottom: 4px;
 }
 
 .form-header p {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--slate-500);
 }
 
@@ -2910,7 +2910,7 @@ a, button, input, select, textarea {
 
 .form-label {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--slate-700);
   margin-bottom: 4px;
@@ -2923,7 +2923,7 @@ a, button, input, select, textarea {
   border: 1px solid var(--slate-200);
   border-radius: 6px;
   font-family: inherit;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--slate-900);
   outline: none;
   transition: all 0.2s ease;
@@ -2951,7 +2951,7 @@ a, button, input, select, textarea {
   background: var(--slate-50);
   border: 1px solid var(--slate-200);
   border-radius: var(--radius-full);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--slate-600);
   cursor: pointer;
@@ -2992,7 +2992,7 @@ a, button, input, select, textarea {
   border: 1px solid var(--slate-200);
   border-radius: 6px;
   text-align: left;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--slate-700);
   cursor: pointer;
@@ -3013,7 +3013,7 @@ a, button, input, select, textarea {
 }
 
 .role-key-question {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 800;
   color: var(--navy);
   margin-bottom: 8px;
@@ -3021,7 +3021,7 @@ a, button, input, select, textarea {
 }
 
 .role-answer-box {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--slate-600);
   line-height: 1.5;
 }
@@ -3055,7 +3055,7 @@ a, button, input, select, textarea {
   background: transparent;
   border: none;
   font-family: inherit;
-  font-size: 13.5px;
+  font-size: 15.5px;
   font-weight: 700;
   color: var(--navy);
   text-align: left;
@@ -3077,7 +3077,7 @@ a, button, input, select, textarea {
 
 .faq-answer-panel {
   padding: 0 16px 14px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--slate-600);
   line-height: 1.5;
   display: none;
@@ -3152,7 +3152,7 @@ a, button, input, select, textarea {
 
 .final-cta-box h2 {
   color: var(--navy);
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
   margin-bottom: 10px;
   line-height: 1.25;
@@ -3160,7 +3160,7 @@ a, button, input, select, textarea {
 
 .final-cta-box p {
   color: var(--slate-600);
-  font-size: 13.5px;
+  font-size: 15.5px;
   line-height: 1.5;
   margin-bottom: 22px;
   max-width: 520px;
@@ -3184,7 +3184,7 @@ a, button, input, select, textarea {
   color: var(--slate-600);
   padding: 60px 0 30px;
   border-top: 1px solid var(--slate-200);
-  font-size: 13.5px;
+  font-size: 15.5px;
 }
 
 .site-footer .container {
@@ -3215,7 +3215,7 @@ a, button, input, select, textarea {
 
 .footer-top-grid h4 {
   color: var(--navy);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 700;
   margin-bottom: 14px;
 }
@@ -3482,7 +3482,7 @@ body.loaded .hero-proof-dock {
 }
 
 .cfo-chart-header h3 {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
   color: var(--navy);
   margin-top: 4px;
@@ -3498,7 +3498,7 @@ body.loaded .hero-proof-dock {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--slate-600);
 }
@@ -3555,7 +3555,7 @@ body.loaded .hero-proof-dock {
 }
 
 .sld-title-wrap h3 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 800;
   color: #FFFFFF;
   margin-top: 3px;
@@ -3569,7 +3569,7 @@ body.loaded .hero-proof-dock {
   align-items: center;
   gap: 5px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   background: rgba(37, 147, 69, 0.2);
@@ -3599,7 +3599,7 @@ body.loaded .hero-proof-dock {
 .sld-model-tab {
   padding: 5px 12px;
   border-radius: var(--radius-full);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   color: #94A3B8;
   background: transparent;
@@ -3631,7 +3631,7 @@ body.loaded .hero-proof-dock {
 
 .sld-hud-label {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 600;
   color: #94A3B8;
   text-transform: uppercase;
@@ -3643,7 +3643,7 @@ body.loaded .hero-proof-dock {
 
 .sld-hud-val {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 800;
   color: #FFFFFF;
 }
@@ -3719,7 +3719,7 @@ body.loaded .hero-proof-dock {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 11px;
+  font-size: 13px;
   color: #94A3B8;
 }
 
@@ -3734,7 +3734,7 @@ body.loaded .hero-proof-dock {
   color: #38BDF8;
   border: 1px solid rgba(56, 189, 248, 0.3);
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: 11.5px;
   font-weight: 700;
   padding: 2px 6px;
   border-radius: 4px;
@@ -3763,7 +3763,7 @@ body.loaded .hero-proof-dock {
 }
 
 .waterfall-header h3 {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 800;
   color: var(--navy);
   margin-top: 2px;
@@ -3786,14 +3786,14 @@ body.loaded .hero-proof-dock {
 
 .waterfall-stat-label {
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: 10.5px;
   color: var(--slate-500);
   text-transform: uppercase;
 }
 
 .waterfall-stat-number {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 800;
   color: var(--navy);
 }
@@ -3882,21 +3882,21 @@ body.loaded .hero-proof-dock {
 
 .stage-pill-num {
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: 10.5px;
   font-weight: 800;
   color: var(--green);
   margin-bottom: 2px;
 }
 
 .stage-pill-title {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   color: var(--navy);
   margin-bottom: 2px;
 }
 
 .stage-pill-deliverable {
-  font-size: 10.5px;
+  font-size: 12.5px;
   color: var(--slate-600);
   line-height: 1.35;
 }
@@ -3917,7 +3917,7 @@ body.loaded .hero-proof-dock {
   background: var(--green);
   color: #FFFFFF;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 800;
   padding: 4px 8px;
   border-radius: 4px;
@@ -3925,14 +3925,14 @@ body.loaded .hero-proof-dock {
 }
 
 .dossier-content h4 {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   color: #FFFFFF;
   margin-bottom: 2px;
 }
 
 .dossier-content p {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--slate-300);
   margin: 0;
   line-height: 1.35;
@@ -3941,7 +3941,7 @@ body.loaded .hero-proof-dock {
 .dossier-kpi-badge {
   text-align: right;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   color: #4ADE80;
   white-space: nowrap;
 }
@@ -3987,14 +3987,14 @@ body.loaded .hero-proof-dock {
 }
 
 .leadership-content-col h3 {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 800;
   color: var(--navy);
   margin-bottom: 4px;
 }
 
 .leadership-content-col p {
-  font-size: 11.5px;
+  font-size: 13.5px;
   color: var(--slate-600);
   line-height: 1.45;
   margin-bottom: 10px;
@@ -4015,7 +4015,7 @@ body.loaded .hero-proof-dock {
   color: var(--green);
   border: 1px solid rgba(37, 147, 69, 0.25);
   border-radius: var(--radius-full);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -4040,14 +4040,14 @@ body.loaded .hero-proof-dock {
 }
 
 .hardware-card-header h3 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
   color: var(--navy);
   margin-top: 4px;
 }
 
 .hardware-card-header p {
-  font-size: 12.5px;
+  font-size: 14.5px;
   color: var(--slate-600);
   margin-top: 3px;
   line-height: 1.45;
@@ -4095,21 +4095,21 @@ body.loaded .hero-proof-dock {
 
 .hardware-part-tag {
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: 10.5px;
   font-weight: 800;
   color: var(--green);
   margin-bottom: 3px;
 }
 
 .hardware-item-box h4 {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 800;
   color: var(--navy);
   margin-bottom: 3px;
 }
 
 .hardware-item-box p {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--slate-600);
   line-height: 1.4;
   margin-bottom: 8px;
@@ -4122,12 +4122,12 @@ body.loaded .hero-proof-dock {
   padding: 2px 7px;
   border-radius: 4px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--navy);
 }
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--slate-800);
 }
@@ -4186,7 +4186,7 @@ body.loaded .hero-proof-dock {
     padding: 60px 0 70px;
   }
   .hero-headline {
-    font-size: 32px;
+    font-size: 34px;
   }
   .hero-cta-group {
     flex-direction: column;
@@ -4268,7 +4268,7 @@ body.loaded .hero-proof-dock {
   .spine-node-pin {
     width: 26px;
     height: 26px;
-    font-size: 10px;
+    font-size: 12px;
     margin: 3px 0 0 0;
     flex-shrink: 0;
   }
@@ -4300,7 +4300,7 @@ body.loaded .hero-proof-dock {
   .benchmark-node-pin {
     width: 24px;
     height: 24px;
-    font-size: 9.5px;
+    font-size: 11.5px;
     margin: 2px 0 0 0;
     flex-shrink: 0;
   }
@@ -4370,7 +4370,7 @@ body.loaded .hero-proof-dock {
   background: var(--white);
   border: 1px solid var(--slate-200);
   border-radius: var(--radius-full);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--slate-600);
   cursor: pointer;
@@ -4415,7 +4415,7 @@ body.loaded .hero-proof-dock {
 }
 
 .merged-block-title-wrap h3 {
-  font-size: 16.5px;
+  font-size: 18.5px;
   font-weight: 800;
   color: var(--navy);
   margin-top: 4px;
@@ -4423,7 +4423,7 @@ body.loaded .hero-proof-dock {
 
 .merged-block-title-wrap p {
   color: var(--slate-600);
-  font-size: 12px;
+  font-size: 14px;
   max-width: 480px;
   margin: 4px auto 0;
   line-height: 1.45;
