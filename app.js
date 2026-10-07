@@ -144,16 +144,29 @@ function initSolarCalculator() {
 
   if (!slider) return;
 
-  function formatLakhs(amount) {
-    if (amount >= 10000000) {
-      return '₹' + (amount / 10000000).toFixed(2) + ' Cr';
+  function getUnits() {
+    const lang = (window.MadhavI18n && window.MadhavI18n.getCurrentLang()) || 'en';
+    if (lang === 'hi') {
+      return { lakh: 'लाख', cr: 'करोड़', mo: '/ माह', yr: '/ वर्ष', years: 'वर्ष' };
     }
-    return '₹' + (amount / 100000).toFixed(1) + ' Lakh';
+    if (lang === 'gu') {
+      return { lakh: 'લાખ', cr: 'કરોડ', mo: '/ મહિને', yr: '/ વર્ષ', years: 'વર્ષ' };
+    }
+    return { lakh: 'Lakh', cr: 'Cr', mo: '/ mo', yr: '/ yr', years: 'Years' };
+  }
+
+  function formatLakhs(amount) {
+    const u = getUnits();
+    if (amount >= 10000000) {
+      return '₹' + (amount / 10000000).toFixed(2) + ' ' + u.cr;
+    }
+    return '₹' + (amount / 100000).toFixed(1) + ' ' + u.lakh;
   }
 
   function updateCalculations() {
+    const u = getUnits();
     const monthlyBill = parseInt(slider.value, 10);
-    if (billDisplay) billDisplay.innerText = formatLakhs(monthlyBill) + ' / mo';
+    if (billDisplay) billDisplay.innerText = formatLakhs(monthlyBill) + ' ' + u.mo;
 
     // Industrial Tariff assumptions (Average ₹8.50/unit)
     const monthlyUnits = monthlyBill / 8.5; 
@@ -182,12 +195,13 @@ function initSolarCalculator() {
       }
     }
 
-    if (annualSaveDisplay) annualSaveDisplay.innerText = formatLakhs(annualSavings) + ' / yr';
-    if (paybackDisplay) paybackDisplay.innerText = payback.toFixed(1) + ' Years';
+    if (annualSaveDisplay) annualSaveDisplay.innerText = formatLakhs(annualSavings) + ' ' + u.yr;
+    if (paybackDisplay) paybackDisplay.innerText = payback.toFixed(1) + ' ' + u.years;
     if (lifetimeDisplay) lifetimeDisplay.innerText = formatLakhs(lifetimeSavings);
   }
 
   slider.addEventListener('input', updateCalculations);
+  window.addEventListener('languageChanged', updateCalculations);
   updateCalculations();
 }
 
@@ -226,42 +240,97 @@ function initCommitteeSwitcher() {
   if (!btns.length || !roleDisplay) return;
 
   const data = {
-    ceo: {
-      question: '“Will this improve our long-term competitiveness?”',
-      answer: 'Power is an uncontrollable variable cost. By locking in a levelized cost of energy at ₹3.20 - ₹3.80/unit for 25 years, solar directly insulates your per-unit manufacturing margin from unpredictable state DISCOM tariff inflation.'
+    en: {
+      ceo: {
+        question: '“Will this improve our long-term competitiveness?”',
+        answer: 'Power is an uncontrollable variable cost. By locking in a levelized cost of energy at ₹3.20 - ₹3.80/unit for 25 years, solar directly insulates your per-unit manufacturing margin from unpredictable state DISCOM tariff inflation.'
+      },
+      cfo: {
+        question: '“Does the investment make commercial sense?”',
+        answer: 'Industrial solar generates an internal rate of return (IRR) of 28% to 34% with a full capital payback period of 2.6 to 3.2 years. Combined with 40% Accelerated Depreciation in Year 1 under Section 32, the tax write-off alone protects immediate working capital.'
+      },
+      plant: {
+        question: '“Can this be executed without compromising operations?”',
+        answer: 'Our engineering protocols utilize non-penetrative standing seam clamps for PEB sheds and modular structural rigging. Installation is sequenced during planned maintenance windows, ensuring zero production downtime.'
+      },
+      procurement: {
+        question: '“Can this partner deliver at the required quality and scale?”',
+        answer: 'With 200+ MW delivered and 550+ industrial projects commissioned, Madhav Solar deploys Tier-1 TOPCon bifacial modules, European string inverters, and dedicated in-house liaison teams for GEDA and CEIG approvals.'
+      },
+      sustainability: {
+        question: '“How does this support our decarbonisation goals?”',
+        answer: 'Every 1 MWp of rooftop solar displaces approximately 1,300 metric tonnes of carbon emissions per year, directly fulfilling Scope-2 reduction targets and strengthening ESG audit reporting for multinational supply chains.'
+      }
     },
-    cfo: {
-      question: '“Does the investment make commercial sense?”',
-      answer: 'Industrial solar generates an internal rate of return (IRR) of 28% to 34% with a full capital payback period of 2.6 to 3.2 years. Combined with 40% Accelerated Depreciation in Year 1 under Section 32, the tax write-off alone protects immediate working capital.'
+    hi: {
+      ceo: {
+        question: '“क्या यह हमारी दीर्घकालिक प्रतिस्पर्धा में सुधार करेगा?”',
+        answer: 'बिजली एक अनियंत्रित परिवर्तनीय लागत है। 25 वर्षों के लिए ऊर्जा की लागत को ₹3.20 - ₹3.80/यूनिट पर लॉक करके, सोलर आपके विनिर्माण मार्जिन को अनपेक्षित डिस्कॉम टैरिफ वृद्धि से सुरक्षित करता है।'
+      },
+      cfo: {
+        question: '“क्या यह निवेश व्यावसायिक दृष्टि से सही है?”',
+        answer: 'औद्योगिक सोलर 28% से 34% का रिटर्न (IRR) उत्पन्न करता है, जिसका पेबैक 2.6 से 3.2 वर्ष है। धारा 32 के तहत प्रथम वर्ष में 40% त्वरित मूल्यह्रास के साथ, कर लाभ कार्यशील पूंजी की सुरक्षा करता है।'
+      },
+      plant: {
+        question: '“क्या इसे उत्पादन में बाधा डाले बिना लागू किया जा सकता है?”',
+        answer: 'हमारे इंजीनियरिंग प्रोटोकॉल PEB शेड के लिए नॉन-पेनेट्रेटिव स्टैंडिंग सीम क्लैम्प्स का उपयोग करते हैं। इंस्टॉलेशन को नियोजित रखरखाव समय में किया जाता है, जिससे शून्य उत्पादन रुकावट सुनिश्चित होती है।'
+      },
+      procurement: {
+        question: '“क्या यह भागीदार आवश्यक गुणवत्ता और पैमाने पर डिलीवरी कर सकता है?”',
+        answer: '200+ MW और 550+ औद्योगिक परियोजनाओं के अनुभव के साथ, माधव सोलर टियर-1 TOPCon मॉड्यूल, यूरोपीय स्ट्रिंग इनवर्टर और GEDA/CEIG अनुमोदन के लिए समर्पित टीम तैनात करता है।'
+      },
+      sustainability: {
+        question: '“यह हमारे डीकार्बोनाइजेशन लक्ष्यों का समर्थन कैसे करता है?”',
+        answer: 'रूफटॉप सोलर का प्रत्येक 1 MWp प्रति वर्ष लगभग 1,300 मीट्रिक टन कार्बन उत्सर्जन कम करता है, जो सीधे स्कोप-2 कटौती लक्ष्यों को पूरा करता है।'
+      }
     },
-    plant: {
-      question: '“Can this be executed without compromising operations?”',
-      answer: 'Our engineering protocols utilize non-penetrative standing seam clamps for PEB sheds and modular structural rigging. Installation is sequenced during planned maintenance windows, ensuring zero production downtime.'
-    },
-    procurement: {
-      question: '“Can this partner deliver at the required quality and scale?”',
-      answer: 'With 200+ MW delivered and 550+ industrial projects commissioned, Madhav Solar deploys Tier-1 TOPCon bifacial modules, European string inverters, and dedicated in-house liaison teams for GEDA and CEIG approvals.'
-    },
-    sustainability: {
-      question: '“How does this support our decarbonisation goals?”',
-      answer: 'Every 1 MWp of rooftop solar displaces approximately 1,300 metric tonnes of carbon emissions per year, directly fulfilling Scope-2 reduction targets and strengthening ESG audit reporting for multinational supply chains.'
+    gu: {
+      ceo: {
+        question: '“શું આ આપણી લાંબા ગાળાની સ્પર્ધાત્મકતામાં સુધારો કરશે?”',
+        answer: 'વીજળી એક અનિયંત્રિત ચલ ખર્ચ છે. 25 વર્ષ માટે વીજ ખર્ચને ₹3.20 - ₹3.80/યુનિટ પર લૉક કરીને, સોલર તમારા મેન્યુફેક્ચરિંગ માર્જિનને ડિસ્કોમ ટેરિફ ફુગાવાથી સુરક્ષિત કરે છે.'
+      },
+      cfo: {
+        question: '“શું આ રોકાણ વ્યાપારી રીતે યોગ્ય છે?”',
+        answer: 'ઔદ્યોગિક સોલર 28% થી 34% IRR જનરેટ કરે છે, જેનો પેબેક સમયગાળો 2.6 થી 3.2 વર્ષ છે. કલમ 32 હેઠળ પ્રથમ વર્ષમાં 40% ઝડપી ઘસારા સાથે ટેક્સ બચત વર્કિંગ કેપિટલનું રક્ષણ કરે છે.'
+      },
+      plant: {
+        question: '“શું આ ફેક્ટરી કામગીરીમાં અડચણ વિના અમલમાં મૂકી શકાય છે?”',
+        answer: 'અમારા એન્જિનિયરિંગ પ્રોટોકોલ્સ PEB શેડ્સ માટે નૉન-પેનિટ્રેટિવ સ્ટેન્ડિંગ સીમ ક્લેમ્પ્સનો ઉપયોગ કરે છે. ઇન્સ્ટોલેશન આયોજિત મેઇન્ટેનન્સ સમયે કરવામાં આવે છે, જેથી શૂન્ય ડાઉનટાઇમ રહે.'
+      },
+      procurement: {
+        question: '“શું આ ભાગીદાર જરૂરી ગુણવત્તા અને સ્કેલ પર કામ કરી શકે છે?”',
+        answer: '200+ MW અને 550+ પ્રોજેક્ટ્સ સાથે, માધવ સોલર ટાયર-1 TOPCon મોડ્યુલ્સ, યુરોપિયન ઇન્વર્ટર્સ અને GEDA/CEIG મંજૂરીઓ માટે સમર્પિત ટીમ પૂરી પાડે છે.'
+      },
+      sustainability: {
+        question: '“આ આપણા ડીકાર્બોનાઇઝેશન લક્ષ્યોને કેવી રીતે મદદ કરે છે?”',
+        answer: 'દર 1 MWp રૂફટોપ સોલર દર વર્ષે આશરે 1,300 મેટ્રિક ટન કાર્બન ઉત્સર્જન ઘટાડે છે, જે સીધા સ્કોપ-2 લક્ષ્યાંકો પૂર્ણ કરે છે.'
+      }
     }
   };
+
+  function renderActiveRole() {
+    const activeBtn = document.querySelector('.role-switch-btn.active') || btns[0];
+    const role = activeBtn ? activeBtn.getAttribute('data-role') : 'ceo';
+    const lang = (window.MadhavI18n && window.MadhavI18n.getCurrentLang()) || 'en';
+    const langData = data[lang] || data.en;
+    if (langData[role]) {
+      roleDisplay.innerHTML = `
+        <div class="role-key-question">${langData[role].question}</div>
+        <div class="role-answer-box">${langData[role].answer}</div>
+      `;
+    }
+  }
 
   btns.forEach((btn) => {
     btn.addEventListener('click', () => {
       btns.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
-
-      const role = btn.getAttribute('data-role');
-      if (data[role]) {
-        roleDisplay.innerHTML = `
-          <div class="role-key-question">${data[role].question}</div>
-          <div class="role-answer-box">${data[role].answer}</div>
-        `;
-      }
+      renderActiveRole();
     });
   });
+
+  window.addEventListener('languageChanged', renderActiveRole);
+  renderActiveRole();
 }
 
 /* ==========================================================
@@ -465,59 +534,146 @@ function initPipelineStages() {
   if (!pills.length) return;
 
   const stageData = {
-    '1': {
-      tag: 'STAGE 01 // LOAD AUDIT',
-      title: 'LiDAR Shadow Modeling & Load Profiling',
-      text: 'Engineering audit of TOD bills, transformer headroom, and roof integrity.',
-      kpi: 'Feasibility Dossier'
+    en: {
+      '1': {
+        tag: 'STAGE 01 // LOAD AUDIT',
+        title: 'LiDAR Shadow Modeling & Load Profiling',
+        text: 'Engineering audit of TOD bills, transformer headroom, and roof integrity.',
+        kpi: 'Feasibility Dossier'
+      },
+      '2': {
+        tag: 'STAGE 02 // STATUTORY NOC',
+        title: 'GEDA Sanction & DISCOM Approvals',
+        text: 'Statutory approvals from state nodal agency (GEDA), CEIG, and DISCOM grid feasibility.',
+        kpi: '14–21 Days'
+      },
+      '3': {
+        tag: 'STAGE 03 // DETAILED DESIGN',
+        title: '3D CAD Design & Electrical SLD',
+        text: 'PVSyst yield modeling, voltage-drop optimization (<1.5%), and 180 km/h wind engineering.',
+        kpi: 'PVSyst & AutoCAD'
+      },
+      '4': {
+        tag: 'STAGE 04 // CFO MODELING',
+        title: 'CFO Economics & Tax Shield',
+        text: 'CAPEX vs Zero-CAPEX PPA structuring and Section 32 40% accelerated depreciation modeling.',
+        kpi: '40% Tax Shield'
+      },
+      '5': {
+        tag: 'STAGE 05 // EPC COMMISSIONING',
+        title: 'Tier-1 EPC & Grid Synchronization',
+        text: 'Non-penetrative clamp assembly, TOPCon modules, and CEIG line clearance with zero plant downtime.',
+        kpi: 'CEIG Sanctioned'
+      },
+      '6': {
+        tag: 'STAGE 06 // ASSET MANAGEMENT',
+        title: '24/7 IoT SCADA & Asset O&M',
+        text: 'Continuous string telemetry, thermal drone checks, and guaranteed PR > 78% uptime.',
+        kpi: '99.2% Uptime SLA'
+      }
     },
-    '2': {
-      tag: 'STAGE 02 // STATUTORY NOC',
-      title: 'GEDA Sanction & DISCOM Approvals',
-      text: 'Statutory approvals from state nodal agency (GEDA), CEIG, and DISCOM grid feasibility.',
-      kpi: '14–21 Days'
+    hi: {
+      '1': {
+        tag: 'चरण 01 // लोड ऑडिट',
+        title: 'LiDAR शैडो मॉडलिंग और लोड प्रोफाइलिंग',
+        text: 'TOD बिल, ट्रांसफार्मर हेडरूम और छत की मजबूती का इंजीनियरिंग ऑडिट।',
+        kpi: 'व्यवहार्यता रिपोर्ट'
+      },
+      '2': {
+        tag: 'चरण 02 // वैधानिक स्वीकृति',
+        title: 'GEDA स्वीकृति और डिस्कॉम अनुमोदन',
+        text: 'राज्य नोडल एजेंसी (GEDA), CEIG और डिस्कॉम ग्रिड व्यवहार्यता से वैधानिक अनुमोदन।',
+        kpi: '14–21 दिन'
+      },
+      '3': {
+        tag: 'चरण 03 // विस्तृत डिजाइन',
+        title: '3D CAD डिजाइन और इलेक्ट्रिकल SLD',
+        text: 'PVSyst यील्ड मॉडलिंग, वोल्टेज-ड्रॉप अनुकूलन (<1.5%), और 180 किमी/घंटा पवन इंजीनियरिंग।',
+        kpi: 'PVSyst और AutoCAD'
+      },
+      '4': {
+        tag: 'चरण 04 // वित्तीय मॉडलिंग',
+        title: 'CFO अर्थशास्त्र और टैक्स शील्ड',
+        text: 'CAPEX बनाम ज़ीरो-CAPEX PPA संरचना और धारा 32 के तहत 40% त्वरित मूल्यह्रास।',
+        kpi: '40% टैक्स शील्ड'
+      },
+      '5': {
+        tag: 'चरण 05 // EPC कमीशनिंग',
+        title: 'टियर-1 EPC और ग्रिड सिंक्रनाइज़ेशन',
+        text: 'शून्य प्लांट डाउनटाइम के साथ नॉन-पेनेट्रेटिव क्लैम्प असेंबली, TOPCon मॉड्यूल और CEIG क्लीयरेंस।',
+        kpi: 'CEIG स्वीकृत'
+      },
+      '6': {
+        tag: 'चरण 06 // एसेट मैनेजमेंट',
+        title: '24/7 IoT SCADA और एसेट O&M',
+        text: 'निरंतर स्ट्रिंग टेलीमेट्री, थर्मल ड्रोन जांच और गारंटीकृत PR > 78% अपटाइम।',
+        kpi: '99.2% अपटाइम SLA'
+      }
     },
-    '3': {
-      tag: 'STAGE 03 // DETAILED DESIGN',
-      title: '3D CAD Design & Electrical SLD',
-      text: 'PVSyst yield modeling, voltage-drop optimization (<1.5%), and 180 km/h wind engineering.',
-      kpi: 'PVSyst & AutoCAD'
-    },
-    '4': {
-      tag: 'STAGE 04 // CFO MODELING',
-      title: 'CFO Economics & Tax Shield',
-      text: 'CAPEX vs Zero-CAPEX PPA structuring and Section 32 40% accelerated depreciation modeling.',
-      kpi: '40% Tax Shield'
-    },
-    '5': {
-      tag: 'STAGE 05 // EPC COMMISSIONING',
-      title: 'Tier-1 EPC & Grid Synchronization',
-      text: 'Non-penetrative clamp assembly, TOPCon modules, and CEIG line clearance with zero plant downtime.',
-      kpi: 'CEIG Sanctioned'
-    },
-    '6': {
-      tag: 'STAGE 06 // ASSET MANAGEMENT',
-      title: '24/7 IoT SCADA & Asset O&M',
-      text: 'Continuous string telemetry, thermal drone checks, and guaranteed PR > 78% uptime.',
-      kpi: '99.2% Uptime SLA'
+    gu: {
+      '1': {
+        tag: 'તબક્કો 01 // લોડ ઓડિટ',
+        title: 'LiDAR શેડો મોડેલિંગ અને લોડ પ્રોફાઇલિંગ',
+        text: 'TOD બિલ, ટ્રાન્સફોર્મર હેડરૂમ અને છતની મજબૂતાઈનું એન્જિનિયરિંગ ઓડિટ.',
+        kpi: 'શક્યતા અહેવાલ'
+      },
+      '2': {
+        tag: 'તબક્કો 02 // સરકારી મંજૂરી',
+        title: 'GEDA મંજૂરી અને ડિસ્કોમ અનુમોદન',
+        text: 'રાજ્ય નોડલ એજન્સી (GEDA), CEIG અને ડિસ્કોમ ગ્રીડ શક્યતામાંથી વૈધાનિક મંજૂરીઓ.',
+        kpi: '14–21 દિવસ'
+      },
+      '3': {
+        tag: 'તબક્કો 03 // વિગતવાર ડિઝાઇન',
+        title: '3D CAD ડિઝાઇન અને ઇલેક્ટ્રિકલ SLD',
+        text: 'PVSyst યીલ્ડ મોડેલિંગ, વોલ્ટેજ-ડ્રોપ ઓપ્ટિમાઇઝેશન (<1.5%), અને 180 કિમી/કલાક પવન એન્જિનિયરિંગ.',
+        kpi: 'PVSyst અને AutoCAD'
+      },
+      '4': {
+        tag: 'તબક્કો 04 // નાણાકીય મોડેલિંગ',
+        title: 'CFO અર્થશાસ્ત્ર અને ટેક્સ શીલ્ડ',
+        text: 'CAPEX વિ ઝીરો-CAPEX PPA સ્ટ્રક્ચરિંગ અને કલમ 32 હેઠળ 40% ઝડપી ઘસારો મોડેલિંગ.',
+        kpi: '40% ટેક્સ શીલ્ડ'
+      },
+      '5': {
+        tag: 'તબક્કો 05 // EPC કમિશનિંગ',
+        title: 'ટાયર-1 EPC અને ગ્રીડ સિંક્રોનાઇઝેશન',
+        text: 'શૂન્ય ફેક્ટરી ડાઉનટાઇમ સાથે નૉન-પેનિટ્રેટિવ ક્લેમ્પ એસેમ્બલી, TOPCon મોડ્યુલ્સ અને CEIG ક્લિયરન્સ.',
+        kpi: 'CEIG મંજૂર'
+      },
+      '6': {
+        tag: 'તબક્કો 06 // એસેટ મેનેજમેન્ટ',
+        title: '24/7 IoT SCADA અને એસેટ O&M',
+        text: 'સતત સ્ટ્રિંગ ટેલિમેટ્રી, થર્મલ ડ્રોન તપાસ અને ગેરંટીડ PR > 78% અપટાઇમ.',
+        kpi: '99.2% અપટાઇમ SLA'
+      }
     }
   };
+
+  function renderActiveStage() {
+    const activePill = document.querySelector('.pipeline-stage-pill.active') || pills[0];
+    const stage = activePill ? activePill.getAttribute('data-stage') : '1';
+    const lang = (window.MadhavI18n && window.MadhavI18n.getCurrentLang()) || 'en';
+    const langData = stageData[lang] || stageData.en;
+    const data = langData[stage];
+    if (!data) return;
+
+    if (tagEl) tagEl.innerText = data.tag;
+    if (titleEl) titleEl.innerText = data.title;
+    if (textEl) textEl.innerText = data.text;
+    if (kpiEl) kpiEl.innerText = data.kpi;
+  }
 
   pills.forEach(pill => {
     pill.addEventListener('click', () => {
       pills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
-
-      const stage = pill.getAttribute('data-stage');
-      const data = stageData[stage];
-      if (!data) return;
-
-      if (tagEl) tagEl.innerText = data.tag;
-      if (titleEl) titleEl.innerText = data.title;
-      if (textEl) textEl.innerText = data.text;
-      if (kpiEl) kpiEl.innerText = data.kpi;
+      renderActiveStage();
     });
   });
+
+  window.addEventListener('languageChanged', renderActiveStage);
+  renderActiveStage();
 }
 
 /* ==========================================================
